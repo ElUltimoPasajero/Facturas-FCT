@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".ui.LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivIberdrolaLogo"
+        android:layout_width="197dp"
+        android:layout_height="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/spaceTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo_iberdrola_cli" />
+
+    <EditText
+
+        android:id="@+id/editTextUser"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
+        android:layout_height="wrap_content"
+        android:hint="@string/login_editText_user"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spaceTop" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/login_editText_password"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxRememberPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
+
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/login_forget_data_text"
+        app:layout_constraintBottom_toTopOf="@+id/viewLine"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxRememberPassword"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxRememberPassword" />
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="140dp"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/spaceBottom"
+        app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
+
+    <CheckBox
+        android:id="@+id/checkBoxRememberPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/greenProject"
+        android:text="@string/login_remember_password_checkbox"
+        app:layout_constraintBottom_toTopOf="@+id/tvForgotPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+    <Button
+        android:id="@+id/buttonEnter"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:text="@string/login_enter_button"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spaceBottom"
+        app:layout_constraintBottom_toTopOf="@+id/tvAlso"
+        tools:layout_editor_absoluteY="539dp" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/login_register_button"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlso"
+        app:strokeColor="@color/greenProject" />
+    " />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/dividerLeft"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvAlso"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEnter" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/dividerRight"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvAlso"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEnter" />
+
+    <TextView
+        android:id="@+id/tvAlso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/login_also_text"
+        android:layout_marginHorizontal="8dp"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/dividerRight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dividerLeft"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEnter" />
+
+    <Space
+        android:id="@+id/spaceTop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivIberdrolaLogo" />
+
+    <Space
+        android:id="@+id/spaceBottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEnter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewLine" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

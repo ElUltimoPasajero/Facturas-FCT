@@ -7,15 +7,14 @@
     tools:context=".ui.fragments.InvoicesListFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
+        android:id="@+id/materialInvoicesToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_anchor="@+id/materialToolbar"
-        app:layout_anchorGravity="center"
         app:navigationIcon="@drawable/ic_arrow_back_ios"
         app:navigationIconTint="?attr/colorPrimary"
         app:title="@string/consuption"
         app:titleTextColor="?attr/colorPrimary"
+        app:menu="@menu/filter_invoices_menu"
         >
 
 
