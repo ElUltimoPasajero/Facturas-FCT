@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="15dp"
     android:orientation="vertical">
 
     <TextView
@@ -11,49 +12,43 @@
         android:layout_width="178dp"
         android:layout_height="34dp"
         android:text="@string/date"
+        android:layout_marginTop="5dp"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_view_status"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="10dp" />
-
-    <TextView
-        android:id="@+id/text_view_order_ammounr"
-        android:layout_width="122dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/ammount"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/text_view_order_ammounr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ammount"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewArrow"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewArrow" />
+
+    <TextView
         android:id="@+id/text_view_status"
-        android:layout_width="180dp"
-        android:layout_height="34dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/status"
         android:textColor="@color/red"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="41dp" />
+        app:layout_constraintStart_toStartOf="@+id/text_view_date"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_date" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="24dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:id="@+id/imageViewArrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/ic_arrow_forward" />
 
-    <com.google.android.material.divider.MaterialDivider
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/text_view_status"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
 
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

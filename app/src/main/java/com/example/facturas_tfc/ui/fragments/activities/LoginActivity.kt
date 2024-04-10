@@ -1,4 +1,4 @@
-package com.example.facturas_tfc.ui
+package com.example.facturas_tfc.ui.fragments.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
