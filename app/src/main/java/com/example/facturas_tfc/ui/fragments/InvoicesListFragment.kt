@@ -1,6 +1,7 @@
 package com.example.facturas_tfc.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.adapter.InvoiceAdapter
-import com.example.facturas_tfc.databinding.ActivityMainBinding
 import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
 import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
 
@@ -23,7 +23,10 @@ class InvoicesListFragment : Fragment() {
     private lateinit var invoiceAdapter: InvoiceAdapter
     private val viewModel: InvoiceActivityViewmodel by viewModels()
 
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.fetchInvoices()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,10 +55,11 @@ class InvoicesListFragment : Fragment() {
 
         setOnClickListener()
 
-        viewModel.getInvoices().observe(viewLifecycleOwner) { invoices ->
+
+        viewModel.invoiceLiveData.observe(viewLifecycleOwner) { invoices ->
+            Log.d("FACTURAS", invoices.toString())
             invoiceAdapter.setListInvoices(invoices)
             invoiceAdapter.notifyDataSetChanged()
-
             val decoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
 
             binding.rvInvoicesList.addItemDecoration(decoration)

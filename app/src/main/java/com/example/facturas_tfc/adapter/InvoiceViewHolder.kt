@@ -4,7 +4,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
-import com.example.facturas_tfc.data.retrofit.network.reponse.InvoiceResponse
+import com.example.facturas_tfc.data.model.InvoiceVO
 import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
 import com.example.facturas_tfc.databinding.InvoiceItemBinding
 import java.text.ParseException
@@ -17,11 +17,11 @@ class InvoiceViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val binding = InvoiceItemBinding.bind(view)
 
 
-    fun render(item: InvoiceResponse, onClickListener: (InvoiceResponse) -> Unit) {
+    fun render(item: InvoiceVO, onClickListener: (InvoiceVO) -> Unit) {
 
-        binding.textViewStatus.text = item.descEstado
-        binding.textViewOrderAmmounr.text = "${item.importeOrdenacion.toString()} €"
-        binding.textViewDate.text = item.fecha?.let { formatDate(it) }
+        binding.textViewStatus.text = item.status
+        binding.textViewOrderAmmounr.text = "${item.amount.toString()} €"
+        binding.textViewDate.text = formatDate(item.date)
 
         itemView.setOnClickListener {
             onClickListener(item)

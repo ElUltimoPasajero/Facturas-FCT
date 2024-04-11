@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         practiceList = (listOf(PracticeVO(1, "Práctica 1"), PracticeVO(2, "Práctica 2")))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel.getInvoices()
         adapter = PracticeAdapter(practiceList) { practice ->
             onItemSelected(practice)
 
@@ -41,13 +40,6 @@ class MainActivity : AppCompatActivity() {
         val decoration = DividerItemDecoration(this, RecyclerView.VERTICAL)
         binding.rvSelectProject.addItemDecoration(decoration)
 
-
-        viewModel.getInvoices().observe(this) { invoices ->
-            // Aquí puedes hacer lo que quieras con la lista, por ejemplo, pasársela al adaptador
-            // o imprimir en el registro (log)
-            Log.d("FACTURAS", invoices.toString())
-            //adapter.submitList(invoices)
-        }
 
 
 

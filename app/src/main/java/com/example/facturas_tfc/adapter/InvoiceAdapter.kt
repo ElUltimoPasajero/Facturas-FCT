@@ -4,16 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
-import com.example.facturas_tfc.data.retrofit.network.reponse.InvoiceResponse
+import com.example.facturas_tfc.data.model.InvoiceVO
 
-class InvoiceAdapter(private val onClickListener: (InvoiceResponse) -> Unit): RecyclerView.Adapter<InvoiceViewHolder>() {
-
-
-        private var listInvoices: List<InvoiceResponse>? = null
+class InvoiceAdapter(private val onClickListener: (InvoiceVO) -> Unit): RecyclerView.Adapter<InvoiceViewHolder>() {
 
 
+        private var listInvoices: List<InvoiceVO>? = null
 
-        fun setListInvoices(listInvoices: List<InvoiceResponse>?) {
+
+
+        fun setListInvoices(listInvoices: List<InvoiceVO>?) {
             this.listInvoices = listInvoices
         }
 
