@@ -57,6 +57,7 @@ class InvoicesListFragment : Fragment() {
             invoiceAdapter.notifyDataSetChanged()
 
             val decoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+
             binding.rvInvoicesList.addItemDecoration(decoration)
         }
     }

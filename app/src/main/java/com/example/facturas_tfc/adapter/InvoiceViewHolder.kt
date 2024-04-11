@@ -23,8 +23,6 @@ class InvoiceViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.textViewOrderAmmounr.text = "${item.importeOrdenacion.toString()} €"
         binding.textViewDate.text = item.fecha?.let { formatDate(it) }
 
-
-
         itemView.setOnClickListener {
             onClickListener(item)
         }
