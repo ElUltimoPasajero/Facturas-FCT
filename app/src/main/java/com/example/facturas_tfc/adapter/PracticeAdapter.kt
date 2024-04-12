@@ -11,7 +11,6 @@ class PracticeAdapter(
     private val onClickListener: (PracticeVO) -> Unit
 ) : RecyclerView.Adapter<PracticeViewHolder>() {
 
-    private var listPract: List<PracticeVO>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PracticeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)

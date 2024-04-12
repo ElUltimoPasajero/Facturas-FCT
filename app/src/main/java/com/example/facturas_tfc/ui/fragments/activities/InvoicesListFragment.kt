@@ -1,7 +1,6 @@
-package com.example.facturas_tfc.ui.fragments
+package com.example.facturas_tfc.ui.fragments.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.adapter.InvoiceAdapter
 import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
-import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
+import com.example.facturas_tfc.ui.fragments.viewmodel.InvoiceActivityViewmodel
 
 
 class InvoicesListFragment : Fragment() {
@@ -26,6 +25,7 @@ class InvoicesListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.fetchInvoices()
+
     }
 
     override fun onCreateView(
@@ -44,7 +44,15 @@ class InvoicesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+        observeInvoices()
+        setOnClickListener()
+        setItemDecoration()
 
+
+    }
+
+    private fun initRecyclerView() {
         invoiceAdapter = InvoiceAdapter { invoice ->
         }
 
@@ -52,18 +60,19 @@ class InvoicesListFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = invoiceAdapter
         }
+    }
 
-        setOnClickListener()
-
-
+    private fun observeInvoices() {
         viewModel.invoiceLiveData.observe(viewLifecycleOwner) { invoices ->
-            Log.d("FACTURAS", invoices.toString())
             invoiceAdapter.setListInvoices(invoices)
             invoiceAdapter.notifyDataSetChanged()
-            val decoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
-
-            binding.rvInvoicesList.addItemDecoration(decoration)
         }
+    }
+
+    private fun setItemDecoration() {
+        val decoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+
+        binding.rvInvoicesList.addItemDecoration(decoration)
     }
 
 

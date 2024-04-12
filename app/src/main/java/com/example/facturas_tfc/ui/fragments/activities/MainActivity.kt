@@ -15,7 +15,7 @@ import com.example.facturas_tfc.R
 import com.example.facturas_tfc.adapter.PracticeAdapter
 import com.example.facturas_tfc.databinding.ActivityMainBinding
 import com.example.facturas_tfc.entities.PracticeVO
-import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
+import com.example.facturas_tfc.ui.fragments.viewmodel.InvoiceActivityViewmodel
 
 class MainActivity : AppCompatActivity() {
 

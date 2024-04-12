@@ -1,6 +1,6 @@
 package com.example.facturas_tfc.data.retrofit.network.reponse
 
-import com.example.facturas_tfc.data.model.InvoiceVO
+import com.example.facturas_tfc.ui.fragments.model.InvoiceVO
 import com.example.facturas_tfc.data.room.InvoiceEntity
 
 data class InvoiceResponse(
@@ -15,6 +15,8 @@ data class InvoiceResponse(
             amount = importeOrdenacion
         )
     }
+
+
 
     fun asInvoiceEntity(): InvoiceEntity {
         return InvoiceEntity(

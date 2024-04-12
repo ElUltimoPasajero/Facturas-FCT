@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/invoicesListFragment"
-        android:name="com.example.facturas_tfc.ui.fragments.InvoicesListFragment"
+        android:name="com.example.facturas_tfc.ui.fragments.activities.InvoicesListFragment"
         android:label="fragment_invoices_list"
         tools:layout="@layout/fragment_invoices_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/invoicesFilterFragment"
-        android:name="com.example.facturas_tfc.ui.fragments.InvoicesFilterFragment"
+        android:name="com.example.facturas_tfc.ui.fragments.activities.InvoicesFilterFragment"
         android:label="fragment_invoices_filter"
         tools:layout="@layout/fragment_invoices_filter" />
 </navigation>
