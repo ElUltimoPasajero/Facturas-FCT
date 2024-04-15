@@ -1,7 +1,7 @@
-package com.example.facturas_tfc.data.retrofit.network.reponse
+package com.example.facturas_tfc.data.reponse
 
-import com.example.facturas_tfc.ui.fragments.model.InvoiceVO
-import com.example.facturas_tfc.data.room.InvoiceEntity
+import com.example.facturas_tfc.model.InvoiceVO
+import com.example.facturas_tfc.data.reponse.room.InvoiceEntity
 
 data class InvoiceResponse(
     val descEstado: String,

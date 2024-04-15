@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
-import com.example.facturas_tfc.ui.fragments.model.InvoiceVO
+import com.example.facturas_tfc.model.InvoiceVO
 
 class InvoiceAdapter(private val onClickListener: (InvoiceVO) -> Unit): RecyclerView.Adapter<InvoiceViewHolder>() {
 

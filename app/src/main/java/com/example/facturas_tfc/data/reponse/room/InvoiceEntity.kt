@@ -1,8 +1,7 @@
-package com.example.facturas_tfc.data.room
+package com.example.facturas_tfc.data.reponse.room
 
 import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.example.facturas_tfc.ui.fragments.model.InvoiceVO
+import com.example.facturas_tfc.model.InvoiceVO
 
 
 @Entity(tableName = "invoice", primaryKeys = ["amount", "date"] //IMPORTANTE a la hora de pasar doble primary key
@@ -22,7 +21,7 @@ class InvoiceEntity(
     }
 }
 
-fun List<InvoiceEntity>.asListInvoicesVO(): List<InvoiceVO> {
+fun List<InvoiceEntity>.asListInvoicesVO(): List<InvoiceVO> { //Metodo de extension para convertir una lista de invoiceEntity en una lista invoiceVO
     val entityList = this
     return entityList.map { entity -> entity.entityAsInvoiceVO() }
 }

@@ -1,4 +1,4 @@
-package com.example.facturas_tfc.data.room
+package com.example.facturas_tfc.data.reponse.room
 
 import androidx.room.Dao
 import androidx.room.Insert

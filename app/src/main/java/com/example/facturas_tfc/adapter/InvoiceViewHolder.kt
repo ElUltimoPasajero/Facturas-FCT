@@ -5,7 +5,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.InvoiceItemBinding
-import com.example.facturas_tfc.ui.fragments.model.InvoiceVO
+import com.example.facturas_tfc.model.InvoiceVO
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Locale

@@ -1,4 +1,4 @@
-package com.example.facturas_tfc.ui.fragments.activities
+package com.example.facturas_tfc.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.facturas_tfc.R
 
 
-
-class SmartSolarInstallationFragment : Fragment() {
+class InvoicesFilterFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +21,7 @@ class SmartSolarInstallationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_smart_solar_installation, container, false)
+        return inflater.inflate(R.layout.fragment_invoices_filter, container, false)
     }
 
 

@@ -1,8 +1,7 @@
-package com.example.facturas_tfc.ui.fragments.activities
+package com.example.facturas_tfc.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +14,7 @@ import com.example.facturas_tfc.R
 import com.example.facturas_tfc.adapter.PracticeAdapter
 import com.example.facturas_tfc.databinding.ActivityMainBinding
 import com.example.facturas_tfc.entities.PracticeVO
-import com.example.facturas_tfc.ui.fragments.viewmodel.InvoiceActivityViewmodel
+import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
 
 class MainActivity : AppCompatActivity() {
 

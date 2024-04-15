@@ -1,10 +1,10 @@
-package com.example.facturas_tfc.data.retrofit.network.reponse
+package com.example.facturas_tfc.data.reponse
 
-import com.example.facturas_tfc.data.retrofit.network.InvoiceService
-import com.example.facturas_tfc.data.room.InvoiceDatabase
-import com.example.facturas_tfc.data.room.InvoiceEntity
-import com.example.facturas_tfc.data.room.asListInvoicesVO
-import com.example.facturas_tfc.ui.fragments.model.InvoiceVO
+import com.example.facturas_tfc.data.reponse.retrofit.InvoiceService
+import com.example.facturas_tfc.data.reponse.room.InvoiceDatabase
+import com.example.facturas_tfc.data.reponse.room.InvoiceEntity
+import com.example.facturas_tfc.data.reponse.room.asListInvoicesVO
+import com.example.facturas_tfc.model.InvoiceVO
 
 class InvoiceRepository {
     val api = InvoiceService()
@@ -27,4 +27,7 @@ class InvoiceRepository {
         val invoicesEntity: List<InvoiceEntity> = invoiceDAO.getallInvoices()
         return invoicesEntity.asListInvoicesVO()
     }
+
+
+
 }

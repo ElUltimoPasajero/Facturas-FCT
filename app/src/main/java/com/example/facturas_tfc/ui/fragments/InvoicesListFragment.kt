@@ -1,4 +1,4 @@
-package com.example.facturas_tfc.ui.fragments.activities
+package com.example.facturas_tfc.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.adapter.InvoiceAdapter
 import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
-import com.example.facturas_tfc.ui.fragments.viewmodel.InvoiceActivityViewmodel
+import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
 
 
 class InvoicesListFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.example.facturas_tfc.ui.fragments.model
+package com.example.facturas_tfc.model
 
 import androidx.room.Entity
 
