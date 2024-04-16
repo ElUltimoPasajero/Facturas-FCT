@@ -72,6 +72,7 @@ class InvoicesListFragment : Fragment() {
     private fun observeInvoices() {
         viewModel.invoiceLiveData.observe(viewLifecycleOwner) { invoices ->
             invoiceAdapter.setListInvoices(invoices)
+            viewModel.getMaxAmmountFromInvoices(invoices)
             invoiceAdapter.notifyDataSetChanged()
         }
     }

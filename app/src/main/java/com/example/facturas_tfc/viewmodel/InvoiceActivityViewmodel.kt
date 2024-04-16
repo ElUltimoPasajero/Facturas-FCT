@@ -16,12 +16,18 @@ import com.example.facturas_tfc.domain.InvoiceUseCase
 import kotlinx.coroutines.launch
 
 class InvoiceActivityViewmodel : ViewModel() {
-
-    val invoiceUseCase = InvoiceUseCase()
     private val invoiceRepository = InvoiceRepository()
     private val _invoiceLiveData = MutableLiveData<List<InvoiceVO>>()
+
     val invoiceLiveData: LiveData<List<InvoiceVO>>
         get() = _invoiceLiveData
+
+
+    private var _maxAmount: Double = 0.0
+
+    val maxAmmmount: Double
+        get() = _maxAmount
+
 
     private var useAPI = true
 
@@ -52,9 +58,6 @@ class InvoiceActivityViewmodel : ViewModel() {
     }
 
 
-
-
-
     private fun isInternetAvailable(): Boolean {
         val connectivityManager =
             MyApp.context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -76,4 +79,18 @@ class InvoiceActivityViewmodel : ViewModel() {
         fetchInvoices()
 
     }
+
+
+    fun getMaxAmmountFromInvoices(invoiceList: List<InvoiceVO>) {
+
+        if (invoiceList.isEmpty()) {
+            _maxAmount = 0.0 //
+            return
+        }
+        _maxAmount = invoiceList.maxOf { it.amount }
+
+        println(maxAmmmount)
+
+    }
+
 }
