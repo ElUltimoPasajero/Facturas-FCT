@@ -6,6 +6,8 @@ import com.example.facturas_tfc.core.network.RetrofitHelper
 import com.example.facturas_tfc.core.network.retromock.RetromockHelper
 import com.example.facturas_tfc.data.reponse.InvoiceClientRetromock
 import com.example.facturas_tfc.data.reponse.InvoiceResponse
+import com.example.facturas_tfc.data.reponse.room.InvoiceEntity
+import com.example.facturas_tfc.model.InvoiceVO
 
 
 class InvoiceService {
@@ -33,8 +35,7 @@ class InvoiceService {
 
     }
 
-
-    suspend fun getDataFromRetromock(): List<InvoiceResponse>? {
+        suspend fun getDataFromRetromock(): List<InvoiceResponse>? {
         val response = retromock.getDataFromRetromock()
         if (response.isSuccessful) {
             val invoices = response.body()?.facturas

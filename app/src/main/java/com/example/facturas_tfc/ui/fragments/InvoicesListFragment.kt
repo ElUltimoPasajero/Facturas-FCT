@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -24,7 +25,6 @@ class InvoicesListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.fetchInvoices()
 
     }
 
@@ -48,7 +48,14 @@ class InvoicesListFragment : Fragment() {
         observeInvoices()
         setOnClickListener()
         setItemDecoration()
-
+        binding.retroMockWsitch.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.swichtPosition(isChecked)
+            Toast.makeText(
+                requireContext(),
+                "Using ${if (isChecked) "Retromock" else "Retrofit"}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
 
     }
 

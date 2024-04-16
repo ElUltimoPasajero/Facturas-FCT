@@ -23,7 +23,7 @@ class InvoiceActivityViewmodel : ViewModel() {
     val invoiceLiveData: LiveData<List<InvoiceVO>>
         get() = _invoiceLiveData
 
-    private val useAPI = true
+    private var useAPI = true
 
     init {
         viewModelScope.launch {
@@ -38,45 +38,22 @@ class InvoiceActivityViewmodel : ViewModel() {
                 if (isInternetAvailable()) {
 
                     when (useAPI) {
-                        true -> fetchandInsertInvoicesFromAPI()
-                        false -> fetchandInsertInvoicesFromMock()
+                        true -> invoiceRepository.fetchandInsertInvoicesFromAPI()
+                        false -> invoiceRepository.fetchandInsertInvoicesFromMock()
                     }
+
+                    _invoiceLiveData.postValue(invoiceRepository.getAllInvoices())
                 }
 
-                _invoiceLiveData.postValue(invoiceRepository.getAllInvoices())
             } catch (e: Exception) {
                 Log.e("InvoiceViewModel", "Error fetching invoices", e)
             }
         }
     }
 
-    private suspend fun InvoiceActivityViewmodel.fetchandInsertInvoicesFromAPI() {
-        val invoicesFromAPI = invoiceUseCase() ?: emptyList()
-
-        // Convertir a InvoiceModelRoom y guardar en la base de datos Room
-        val invoicesRoom = invoicesFromAPI.map { invoice ->
-            InvoiceEntity(
-                status = invoice.status,
-                amount = invoice.amount,
-                date = invoice.date
-            )
-        }
-        invoiceRepository.insertInvoices(invoicesRoom)
-    }
 
 
-    private suspend fun InvoiceActivityViewmodel.fetchandInsertInvoicesFromMock() {
-        val invoicesFromMock = invoiceUseCase() ?: emptyList()
 
-        val invoicesRoom = invoicesFromMock.map { invoice ->
-            InvoiceEntity(
-                status = invoice.status,
-                amount = invoice.amount,
-                date = invoice.date
-            )
-        }
-        invoiceRepository.insertInvoices(invoicesRoom)
-    }
 
     private fun isInternetAvailable(): Boolean {
         val connectivityManager =
@@ -90,5 +67,13 @@ class InvoiceActivityViewmodel : ViewModel() {
                         capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
                         capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
                 )
+    }
+
+
+    fun swichtPosition(apiPosition: Boolean) {
+        invoiceRepository.invoiceDAO.deleteAllInvoices()
+        useAPI = apiPosition
+        fetchInvoices()
+
     }
 }
