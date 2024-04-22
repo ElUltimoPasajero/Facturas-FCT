@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +21,7 @@ class InvoicesListFragment : Fragment() {
 
     private lateinit var binding: FragmentInvoicesListBinding
     private lateinit var invoiceAdapter: InvoiceAdapter
-    private val viewModel: InvoiceActivityViewmodel by viewModels()
+    private val viewModel: InvoiceActivityViewmodel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +46,7 @@ class InvoicesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         observeInvoices()
+
         setOnClickListener()
         setItemDecoration()
         binding.retroMockWsitch.setOnCheckedChangeListener { _, isChecked ->
@@ -70,10 +71,15 @@ class InvoicesListFragment : Fragment() {
     }
 
     private fun observeInvoices() {
-        viewModel.invoiceLiveData.observe(viewLifecycleOwner) { invoices ->
+        viewModel.filteredInvoicesListLiveData.observe(viewLifecycleOwner) { invoices ->
             invoiceAdapter.setListInvoices(invoices)
-            viewModel.getMaxAmmountFromInvoices(invoices)
+            viewModel.getMaxAmmountFromInvoices()
             invoiceAdapter.notifyDataSetChanged()
+        }
+        viewModel.filterLiveData.observe(viewLifecycleOwner) {filter ->
+            if (filter != null) {
+                viewModel.verifyFilters()
+            }
         }
     }
 

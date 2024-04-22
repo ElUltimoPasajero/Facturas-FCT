@@ -154,8 +154,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/slider_ammount"
-                app:layout_constraintEnd_toEndOf="@+id/slider_ammount"
-                app:layout_constraintStart_toStartOf="@+id/slider_ammount"
+                app:layout_constraintEnd_toEndOf="@+id/slider_ammount_seekbar"
+                app:layout_constraintStart_toStartOf="@+id/slider_ammount_seekbar"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <TextView
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/slider_ammount"
-                app:layout_constraintStart_toStartOf="@+id/slider_ammount"
+                app:layout_constraintStart_toStartOf="@+id/slider_ammount_seekbar"
                 app:layout_constraintTop_toBottomOf="@+id/slider_count" />
 
             <TextView
@@ -173,11 +173,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="@string/slider_ammount"
-                app:layout_constraintEnd_toEndOf="@+id/slider_ammount"
+                app:layout_constraintEnd_toEndOf="@+id/slider_ammount_seekbar"
                 app:layout_constraintTop_toBottomOf="@+id/slider_count" />
 
             <SeekBar
-                android:id="@+id/slider_ammount"
+                android:id="@+id/slider_ammount_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:max="100"
@@ -217,7 +217,7 @@
                 android:background="@android:color/darker_gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/slider_ammount" />
+                app:layout_constraintTop_toBottomOf="@+id/slider_ammount_seekbar" />
 
             <CheckBox
                 android:id="@+id/checkBoxPaid"

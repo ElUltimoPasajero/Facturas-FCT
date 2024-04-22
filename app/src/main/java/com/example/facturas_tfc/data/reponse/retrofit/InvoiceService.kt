@@ -2,12 +2,10 @@ package com.example.facturas_tfc.data.reponse.retrofit
 
 import android.util.Log
 import com.example.facturas_tfc.data.reponse.InvoiceClient
-import com.example.facturas_tfc.core.network.RetrofitHelper
-import com.example.facturas_tfc.core.network.retromock.RetromockHelper
+import com.example.facturas_tfc.data.network.RetrofitHelper
+import com.example.facturas_tfc.data.network.retromock.RetromockHelper
 import com.example.facturas_tfc.data.reponse.InvoiceClientRetromock
 import com.example.facturas_tfc.data.reponse.InvoiceResponse
-import com.example.facturas_tfc.data.reponse.room.InvoiceEntity
-import com.example.facturas_tfc.model.InvoiceVO
 
 
 class InvoiceService {

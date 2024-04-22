@@ -28,6 +28,6 @@ interface InvoiceClientRetromock {
 interface InvoiceClient {
 
 
-    @GET("facturas")
+    @GET("")
     suspend fun getDataFromAPI(): Response<InvoiceRepositoryListResponse>
 }

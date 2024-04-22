@@ -1,4 +1,4 @@
-package com.example.facturas_tfc.core.network.retromock
+package com.example.facturas_tfc.data.network.retromock
 
 import co.infinum.retromock.Retromock
 import retrofit2.Retrofit
