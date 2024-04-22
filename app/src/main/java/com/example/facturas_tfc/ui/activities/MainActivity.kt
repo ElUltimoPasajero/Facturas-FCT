@@ -56,6 +56,15 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, InvoicesActivity::class.java)
             startActivity(intent)
 
+        } else {
+
+
+            if (practice.id == 2) {
+                val intent = Intent(this, SmartSolarActivity::class.java)
+                startActivity(intent)
+
+
+            }
         }
     }
 }

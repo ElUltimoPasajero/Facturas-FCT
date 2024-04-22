@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activity_smart_solar"
     tools:context=".ui.activities.SmartSolarActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar_smartSolar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_arrow_back_ios"
