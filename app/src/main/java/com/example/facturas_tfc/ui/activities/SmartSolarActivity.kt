@@ -21,7 +21,7 @@ class SmartSolarActivity : AppCompatActivity() {
 
         binding = ActivitySmartSolarBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val toolbar: MaterialToolbar = binding.materialToolbarSmartSolar
+        val toolbar: MaterialToolbar = binding.includeMaterialToolbarSmartSolar.materialToolbar
 
 
         toolbar.setNavigationOnClickListener {

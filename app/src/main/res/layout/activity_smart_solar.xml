@@ -7,15 +7,10 @@
     android:id="@+id/activity_smart_solar"
     tools:context=".ui.activities.SmartSolarActivity">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar_smartSolar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:navigationIcon="@drawable/ic_arrow_back_ios"
-        app:navigationIconTint="?attr/colorPrimary"
-        app:title="@string/back"
-        app:titleTextColor="?attr/colorPrimary" />
-
+    <include
+        android:id="@+id/include_material_toolbar_smart_solar"
+        layout="@layout/toolbar_back_button"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
