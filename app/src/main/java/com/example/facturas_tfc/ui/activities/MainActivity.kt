@@ -1,5 +1,6 @@
 package com.example.facturas_tfc.ui.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -22,6 +23,19 @@ class MainActivity : AppCompatActivity() {
     private lateinit var practiceList: List<PracticeVO>
     private lateinit var adapter: PracticeAdapter
     private val viewModel: InvoiceActivityViewmodel by viewModels()
+
+    companion object {
+        fun create(context: Context): Intent {
+
+
+            val intent =  Intent(context, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            return intent
+
+        }
+
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onItemSelected(practice: PracticeVO) {
+
 
         if (practice.id == 1) {
             val intent = Intent(this, InvoicesActivity::class.java)
