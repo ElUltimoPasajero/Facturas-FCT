@@ -13,10 +13,19 @@
         <action
             android:id="@+id/action_invoicesListFragment_to_invoicesFilterFragment"
             app:destination="@id/invoicesFilterFragment" />
+        <action
+            android:id="@+id/action_invoicesListFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/invoicesFilterFragment"
         android:name="com.example.facturas_tfc.ui.fragments.InvoicesFilterFragment"
         android:label="fragment_invoices_filter"
         tools:layout="@layout/fragment_invoices_filter" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.facturas_tfc.ui.activities.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>

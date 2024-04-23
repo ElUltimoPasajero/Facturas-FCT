@@ -40,7 +40,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        practiceList = (listOf(PracticeVO(1, "Práctica 1"), PracticeVO(2, "Práctica 2")))
+        practiceList = (listOf(
+            PracticeVO(1, "Práctica 1"),
+            PracticeVO(2, "Práctica 2"),
+            PracticeVO(3, "Vista de Navegación")
+        ))
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         adapter = PracticeAdapter(practiceList) { practice ->
@@ -79,6 +83,14 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
 
 
+            } else {
+
+                if (practice.id == 3) {
+                    val intent = Intent(this, WebViewActivity::class.java)
+                    startActivity(intent)
+
+
+                }
             }
         }
     }
