@@ -94,7 +94,6 @@ class InvoicesListFragment : Fragment() {
     private fun setOnClickListener() {
 
         binding.materialInvoicesToolbar.setNavigationOnClickListener {
-            requireActivity().finish()
             startActivity(MainActivity.create(requireContext()))
         }
 
