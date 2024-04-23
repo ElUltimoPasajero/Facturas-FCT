@@ -25,7 +25,7 @@ class SmartSolarActivity : AppCompatActivity() {
 
 
         toolbar.setNavigationOnClickListener {
-            MainActivity.create(this)
+            startActivity(MainActivity.create(this))
         }
 
 
