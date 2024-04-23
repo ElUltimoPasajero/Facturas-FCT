@@ -25,10 +25,7 @@ class SmartSolarActivity : AppCompatActivity() {
 
 
         toolbar.setNavigationOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-
+            MainActivity.create(this)
         }
 
 
