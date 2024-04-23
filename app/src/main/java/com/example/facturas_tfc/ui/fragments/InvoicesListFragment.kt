@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.NavUtils.navigateUpTo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.adapter.InvoiceAdapter
 import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
+import com.example.facturas_tfc.ui.activities.MainActivity
 import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
 
 
@@ -46,7 +48,6 @@ class InvoicesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         observeInvoices()
-
         setOnClickListener()
         setItemDecoration()
         binding.retroMockWsitch.setOnCheckedChangeListener { _, isChecked ->
@@ -91,6 +92,12 @@ class InvoicesListFragment : Fragment() {
 
 
     private fun setOnClickListener() {
+
+        binding.materialInvoicesToolbar.setNavigationOnClickListener {
+            requireActivity().finish()
+            startActivity(MainActivity.create(requireContext()))
+        }
+
 
         binding.materialInvoicesToolbar.setOnMenuItemClickListener { //Asi se vincula un icono de menu con una toolbar de materialToolbar
 
