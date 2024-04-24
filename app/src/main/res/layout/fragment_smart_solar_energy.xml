@@ -8,14 +8,14 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imagev_management_plan"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/management_plan"></ImageView>
+       android:src="@drawable/management_plan"/>
 
     <TextView
         android:id="@+id/tvEnergyText"
@@ -27,6 +27,6 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imagev_management_plan" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
