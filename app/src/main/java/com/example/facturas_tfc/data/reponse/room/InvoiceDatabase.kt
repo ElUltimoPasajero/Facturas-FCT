@@ -5,11 +5,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.facturas_tfc.MyApp
 
-@Database(entities = [InvoiceEntity::class], version = 1, exportSchema = false)
+@Database(entities = [InvoiceEntity::class, EnergyDataModelRoom::class], version = 1, exportSchema = false)
  abstract class InvoiceDatabase: RoomDatabase() {
 
 
     abstract fun getAppDao(): InvoiceDAO
+    abstract fun getEnergyDetailsDataDAO(): EnergyDataDetailsDAO
     companion object{
         private var DB_INSTANCE: InvoiceDatabase? = null
 

@@ -21,14 +21,20 @@
             android:name=".ui.activities.WebViewActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activities.ForgotPaswordActivity"
+            android:name=".ui.activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.SingUpActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activities.LoginActivity"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".ui.activities.SmartSolarActivity"
             android:exported="false" />
@@ -38,12 +44,8 @@
         </activity>
         <activity
             android:name=".ui.activities.MainActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false" >
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

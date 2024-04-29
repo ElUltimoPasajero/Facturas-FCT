@@ -5,10 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.facturas_tfc.R
+import com.example.facturas_tfc.databinding.FragmentSmartSolarEnergyBinding
+import com.example.facturas_tfc.viewmodel.SmartSolarEnergyActivityViewModel
 
 
 class SmartSolarEnergyFragment : Fragment() {
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,5 +29,8 @@ class SmartSolarEnergyFragment : Fragment() {
     }
 
 
-            }
+
+
+    }
+
 

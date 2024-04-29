@@ -22,21 +22,11 @@ class InvoiceActivityViewmodel : ViewModel() {
 
     private val invoiceRepository = InvoiceRepository()
     private val _invoiceLiveData = MutableLiveData<List<InvoiceVO>>()
-    var selectedDateFrom: Date? = null
-    var selectedDataUntil: Date? = null
-    var selectedAmount: Double = 0.0
-    var isPaidChecked: Boolean = false
-    var isPendingPaymentChecked: Boolean = false
-    var isCancelledChecked: Boolean = false
-    var fixedFeeChecked: Boolean = false
-    var paymentPlanChecked: Boolean = false
     private var _maxAmount: Double = 0.0
-
     private var invoicesList: List<InvoiceVO> = emptyList()
-
-
-
     private val _filteredInvoicesListLiveData = MutableLiveData<List<InvoiceVO>>()
+
+
     val filteredInvoicesListLiveData: LiveData<List<InvoiceVO>>
         get() = _filteredInvoicesListLiveData
 

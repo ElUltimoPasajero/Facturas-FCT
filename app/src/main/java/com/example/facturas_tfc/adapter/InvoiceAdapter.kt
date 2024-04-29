@@ -34,3 +34,5 @@ class InvoiceAdapter(private val onClickListener: (InvoiceVO) -> Unit) :
         holder.render(listInvoices?.get(position)!!, onClickListener)
     }
 }
+
+

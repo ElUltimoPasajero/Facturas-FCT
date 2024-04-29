@@ -1,10 +1,9 @@
 package com.example.facturas_tfc.data.reponse.retrofit
 
 import android.util.Log
-import com.example.facturas_tfc.data.reponse.InvoiceClient
 import com.example.facturas_tfc.data.network.RetrofitHelper
 import com.example.facturas_tfc.data.network.retromock.RetromockHelper
-import com.example.facturas_tfc.data.reponse.InvoiceClientRetromock
+import com.example.facturas_tfc.data.reponse.EnergyDataDetail
 import com.example.facturas_tfc.data.reponse.InvoiceResponse
 
 
@@ -48,6 +47,17 @@ class InvoiceService {
 
         }
 
+    }
+
+    suspend fun getDataEnergyDetailsFromMock(): EnergyDataDetail? {
+        val response = retromockBuilder.create(EnergyDataRetroMock::class.java).getDataEnergyFromMock()
+        if (response.isSuccessful && response.body() != null) {
+            val energyDataDetails = response.body()
+            return energyDataDetails
+        } else{
+            Log.d("EnergyDaraDetails Error", "Unable to get details")
+            return null
+        }
     }
 }
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "914875732982",
+    "project_id": "invoices-fac5b",
+    "storage_bucket": "invoices-fac5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914875732982:android:473161d9bd033b98942dd7",
+        "android_client_info": {
+          "package_name": "com.example.facturas_tfc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA39wstM738_9KvbCl8qU35RaOdfZjxlSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

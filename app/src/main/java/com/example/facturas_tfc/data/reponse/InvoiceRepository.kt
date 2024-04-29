@@ -1,6 +1,7 @@
 package com.example.facturas_tfc.data.reponse
 
 import com.example.facturas_tfc.data.reponse.retrofit.InvoiceService
+import com.example.facturas_tfc.data.reponse.room.EnergyDataModelRoom
 import com.example.facturas_tfc.data.reponse.room.InvoiceDatabase
 import com.example.facturas_tfc.data.reponse.room.InvoiceEntity
 import com.example.facturas_tfc.data.reponse.room.asListInvoicesVO
@@ -9,6 +10,7 @@ import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
 
 class InvoiceRepository {
     val api = InvoiceService()
+    val energyDetailsDao = InvoiceDatabase.getAppDBInstance().getEnergyDetailsDataDAO()
     val invoiceDAO = InvoiceDatabase.getAppDBInstance().getAppDao()
 
 
@@ -61,6 +63,24 @@ class InvoiceRepository {
             )
         }
         insertInvoices(invoicesRoom)
+    }
+
+
+    suspend fun insertEnergyDataDetails(energyDataModelRoom: EnergyDataModelRoom) {
+        energyDetailsDao.insertInvoices(energyDataModelRoom)
+    }
+
+    fun getAllEnergyData(): EnergyDataModelRoom {
+        return energyDetailsDao.getAllEnergyDataDetails()
+    }
+
+
+    suspend fun fetchAndInsertEnergyDataFromMock() {
+        val energyDetails = api.getDataEnergyDetailsFromMock()
+        val energyDetailsRoom = energyDetails?.asEnergyDataDetailsModelRoom()
+        if (energyDetailsRoom != null) {
+            insertEnergyDataDetails(energyDetailsRoom)
+        }
     }
 
 
