@@ -1,6 +1,6 @@
 package com.example.facturas_tfc.ui.activities
 
-import AuthenticatorViewModel
+import AuthenticatorandLoginViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -14,12 +14,12 @@ import com.example.facturas_tfc.databinding.ActivitySingUpBinding
 
 class SingUpActivity : AppCompatActivity() {
 
-    private lateinit var authViewModel: AuthenticatorViewModel
+    private lateinit var authViewModel: AuthenticatorandLoginViewModel
     private lateinit var binding: ActivitySingUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        authViewModel = ViewModelProvider(this).get(AuthenticatorViewModel::class.java)
+        authViewModel = ViewModelProvider(this).get(AuthenticatorandLoginViewModel::class.java)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -34,15 +34,13 @@ class SingUpActivity : AppCompatActivity() {
             insets
         }
 
-
-
-
     }
 
     private fun initGoToLoginButton() {
         binding.signupButtonLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

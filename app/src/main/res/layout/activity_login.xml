@@ -18,78 +18,79 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo_iberdrola_cli" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
 
-        android:id="@+id/editTextUser"
+        android:id="@+id/userInputText"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
         android:layout_width="match_parent"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         android:layout_height="wrap_content"
-        android:hint="@string/login_editText_user"
-        android:inputType="textEmailAddress"
         android:textSize="14dp"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:hintEnabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/inputTextPasword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spaceTop" />
+        app:layout_constraintTop_toBottomOf="@+id/spaceTop">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userEditText"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="usuario"
+            android:textSize="14sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextPassword"
+        android:id="@+id/inputTextPasword"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
-        android:hint="@string/login_editText_password"
         android:textSize="14dp"
-        app:passwordToggleEnabled="true"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeWidth="0dp"
+        app:boxBackgroundColor="@android:color/transparent"
         app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/checkBoxRememberPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/checkBoxRememberPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUser"
-        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense">
+        app:layout_constraintTop_toBottomOf="@+id/userInputText">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPasword"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:hint="contraseña"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonForgotPassword"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/login_forget_data_text"
-        app:layout_constraintBottom_toTopOf="@+id/viewLine"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/checkBoxRememberPassword"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxRememberPassword"
-        style="@style/Widget.Material3.Button.TextButton.Icon" />
-
-
-    <View
-        android:id="@+id/viewLine"
-        android:layout_width="140dp"
-        android:layout_height="1dp"
-        android:background="#000"
         app:layout_constraintBottom_toTopOf="@+id/spaceBottom"
-        app:layout_constraintEnd_toEndOf="@+id/buttonForgotPassword"
-        app:layout_constraintStart_toStartOf="@+id/buttonForgotPassword"
-        app:layout_constraintTop_toBottomOf="@id/buttonForgotPassword" />
+        app:layout_constraintStart_toStartOf="@+id/checkBoxRememberPassword"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxRememberPassword" />
+
 
     <CheckBox
         android:id="@+id/checkBoxRememberPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="@color/greenProject"
-        android:text="@string/login_remember_password_checkbox"
+        android:text="@string/login_remember_user_checkbox"
         app:layout_constraintBottom_toTopOf="@+id/buttonForgotPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+        app:layout_constraintStart_toStartOf="@+id/inputTextPasword"
+        app:layout_constraintTop_toBottomOf="@+id/inputTextPasword" />
 
     <Button
         android:id="@+id/buttonEnter"
@@ -97,10 +98,10 @@
         android:layout_height="50dp"
         android:text="@string/login_enter_button"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvAlso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spaceBottom"
-        app:layout_constraintBottom_toTopOf="@+id/tvAlso"
         tools:layout_editor_absoluteY="539dp" />
 
     <Button
@@ -142,21 +143,21 @@
         android:id="@+id/tvAlso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
         android:layout_marginTop="10dp"
         android:text="@string/login_also_text"
-        android:layout_marginHorizontal="8dp"
         android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
         app:layout_constraintEnd_toStartOf="@+id/dividerRight"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/dividerLeft"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
         app:layout_constraintTop_toBottomOf="@+id/buttonEnter" />
 
     <Space
         android:id="@+id/spaceTop"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextUser"
+        app:layout_constraintBottom_toTopOf="@+id/userInputText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivIberdrolaLogo" />
@@ -168,7 +169,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonEnter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewLine" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonForgotPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

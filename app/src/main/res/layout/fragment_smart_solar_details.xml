@@ -23,7 +23,7 @@
         android:id="@+id/editTextCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ES0002100000000199LJ1FA000"
+        android:text="@string/example_detail_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/autoConsumption" />
 

@@ -31,7 +31,7 @@
     <string name="login_editText_user">Usuario</string>
     <string name="login_editText_password">Contraseña</string>
     <string name="login_forget_data_text">He olvidado mis datos</string>
-    <string name="login_remember_password_checkbox">Recordar Contraseña</string>
+    <string name="login_remember_user_checkbox">Recordar Usuario</string>
     <string name="login_enter_button">Entrar</string>
     <string name="login_also_text">También puedes</string>
     <string name="login_register_button">Regístrate</string>
@@ -40,6 +40,15 @@
     <string name="forgot_password_send_email_button">Enviar</string>
     <string name="forgot_password_also_text">Tambien puedes</string>
     <string name="forgot_password_sing_in_button">Iniciar Sesion</string>
+    <string name="insert_your_password">Introduce tu contraseña</string>
+    <string name="repeat_your_password">Repite la contraseña</string>
+    <string name="register">Registrate</string>
+    <string name="log_in">Iniciar Sesion</string>
+    <string name="passwords_conditions">*Debe contener mayúsculas, minusculas y números</string>
+    <string name="web_view_explaining">Desde una aplicación Android, se pude acceder a páginas webs, mediante el nave-gador externo o mediante Webviews</string>
+    <string name="open_external_navigator">Abrir Navegador externo</string>
+    <string name="example_detail_number">ES0002100000000199LJ1FA000</string>
+    <string name="smart_solar_text">Estamos trabajando en mejorar la App. Tus paneles solares siguen produciendo, en breve podras seguir viendo tu produccion solar. Sentimos las molestias</string>
 
 
 </resources>

@@ -22,7 +22,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="70dp"
-        android:text="Estamos trabajando en mejorar la App. Tus paneles solares siguen produciendo, en breve podras seguir viendo tu produccion solar. Sentimos las molestias"
+        android:text="@string/smart_solar_text"
         android:textAlignment="center"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"

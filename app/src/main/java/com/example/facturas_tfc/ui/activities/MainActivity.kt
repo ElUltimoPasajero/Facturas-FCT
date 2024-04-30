@@ -1,8 +1,10 @@
 package com.example.facturas_tfc.ui.activities
 
+import AuthenticatorandLoginViewModel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,7 @@ import com.example.facturas_tfc.adapter.PracticeAdapter
 import com.example.facturas_tfc.databinding.ActivityMainBinding
 import com.example.facturas_tfc.entities.PracticeVO
 import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,12 +26,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var practiceList: List<PracticeVO>
     private lateinit var adapter: PracticeAdapter
     private val viewModel: InvoiceActivityViewmodel by viewModels()
+    private val LoginViewModel: AuthenticatorandLoginViewModel by viewModels()
+
 
     companion object {
         fun create(context: Context): Intent {
 
 
-            val intent =  Intent(context, MainActivity::class.java)
+            val intent = Intent(context, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             return intent
 
@@ -66,6 +71,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        setupLogoutButton()
+
     }
 
     private fun onItemSelected(practice: PracticeVO) {
@@ -94,4 +101,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private fun setupLogoutButton() {
+        val logoutButton = findViewById<Button>(R.id.buttonLogout)
+        logoutButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.putExtra("logout", false)
+            startActivity(intent)
+            finish()
+        }
+    }
+
 }

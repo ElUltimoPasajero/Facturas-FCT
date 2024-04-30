@@ -22,7 +22,7 @@
             android:id="@+id/web_view_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Desde una aplicación Android, se pude acceder a páginas webs, mediante el nave-gador externo o mediante Webviews"
+            android:text="@string/web_view_explaining"
             android:layout_marginTop="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
             android:layout_width="230dp"
             android:layout_height="50dp"
 
-            android:text="Abrir Navegador externo"
+            android:text="@string/open_external_navigator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_open_navegator" />

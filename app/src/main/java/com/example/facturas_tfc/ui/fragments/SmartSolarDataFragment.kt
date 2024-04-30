@@ -27,7 +27,7 @@ class SmartSolarDataFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-binding= FragmentSmartSolarDetailsBinding.inflate(layoutInflater,container,false)
+        binding = FragmentSmartSolarDetailsBinding.inflate(layoutInflater, container, false)
 
         return binding.root
 

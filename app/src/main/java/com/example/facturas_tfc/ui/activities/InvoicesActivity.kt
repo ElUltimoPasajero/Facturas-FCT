@@ -11,11 +11,7 @@ class InvoicesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
         enableEdgeToEdge()
-
 
         setContentView(R.layout.activity_invoices)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
