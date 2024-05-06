@@ -8,6 +8,10 @@ class MyApp: Application() {
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
+
+
+        RemoteConfigManager.initialize(this)
+
     }
 
     companion object {

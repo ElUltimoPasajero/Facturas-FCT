@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.app.NavUtils.navigateUpTo
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +20,7 @@ import com.example.facturas_tfc.adapter.InvoiceAdapter
 import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
 import com.example.facturas_tfc.ui.activities.MainActivity
 import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
+import com.example.facturas_tfc.viewmodel.RemoteConfigViewModel
 
 
 class InvoicesListFragment : Fragment() {
@@ -24,6 +28,7 @@ class InvoicesListFragment : Fragment() {
     private lateinit var binding: FragmentInvoicesListBinding
     private lateinit var invoiceAdapter: InvoiceAdapter
     private val viewModel: InvoiceActivityViewmodel by activityViewModels()
+    private val remoteConfigViewModel: RemoteConfigViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,19 +55,41 @@ class InvoicesListFragment : Fragment() {
         observeInvoices()
         setOnClickListener()
         setItemDecoration()
+
+
+        remoteConfigViewModel.switchVisibility.observe(viewLifecycleOwner) { visible ->
+            if (visible) {
+                binding.retroMockWsitch.visibility = View.VISIBLE
+            } else {
+                binding.retroMockWsitch.visibility = View.GONE
+                binding.retroMockText.visibility=View.GONE
+            }
+        }
+
+        remoteConfigViewModel.changeAppTheme.observe(viewLifecycleOwner) { darkThemeEnabled ->
+            remoteConfigViewModel.applyTheme(darkThemeEnabled)
+        }
+
+
+
         binding.retroMockWsitch.setOnCheckedChangeListener { _, isChecked ->
             viewModel.swichtPosition(isChecked)
             Toast.makeText(
                 requireContext(),
-                "Using ${if (isChecked) "Retromock" else "Retrofit"}",
+                "Using ${if (isChecked) "Retrofit" else "Retromock"}",
                 Toast.LENGTH_SHORT
             ).show()
+
+
         }
 
     }
 
     private fun initRecyclerView() {
         invoiceAdapter = InvoiceAdapter { invoice ->
+            showAlertDialog()
+
+
         }
 
         binding.rvInvoicesList.apply {
@@ -77,7 +104,7 @@ class InvoicesListFragment : Fragment() {
             viewModel.getMaxAmmountFromInvoices()
             invoiceAdapter.notifyDataSetChanged()
         }
-        viewModel.filterLiveData.observe(viewLifecycleOwner) {filter ->
+        viewModel.filterLiveData.observe(viewLifecycleOwner) { filter ->
             if (filter != null) {
                 viewModel.verifyFilters()
             }
@@ -116,6 +143,19 @@ class InvoicesListFragment : Fragment() {
                 else -> false
             }
         }
+    }
+    private fun showAlertDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+        alertDialogBuilder.apply {
+            setTitle("Funcionalidad no implementada")
+            setMessage("Lo siento, esta funcionalidad aún no está disponible.")
+            setPositiveButton("Aceptar") { dialog, _ ->
+                dialog.dismiss()
+            }
+        }
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
 }
 

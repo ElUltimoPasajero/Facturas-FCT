@@ -64,6 +64,7 @@ dependencies {
     implementation (libs.androidx.lifecycle.common.java8)
 //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler.v250)
+    implementation (libs.firebase.config.ktx)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.hilt.android)
     implementation(libs.retrofit)

@@ -16,7 +16,7 @@ interface InvoiceClientRetromock {
     @MockResponses(
 
         MockResponse(body = "mock.json"),
-        MockResponse(body = "mock1.json")
+        MockResponse(body = "mock2.json")
     )
     @MockCircular
     @GET("resources")
