@@ -16,6 +16,7 @@
     <color name="md_theme_light_onSecondaryContainer">#171E0A</color>
     <color name="md_theme_light_tertiary">#396661</color>
     <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
     <color name="md_theme_light_tertiaryContainer">#BCECE5</color>
     <color name="md_theme_light_onTertiaryContainer">#00201D</color>
     <color name="md_theme_light_error">#BA1A1A</color>

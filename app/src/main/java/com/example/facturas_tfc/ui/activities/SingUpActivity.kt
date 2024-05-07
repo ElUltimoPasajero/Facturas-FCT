@@ -41,7 +41,10 @@ class SingUpActivity : AppCompatActivity() {
             finish()
         }
     }
-
+    private fun isPasswordValid(password: String): Boolean {
+        val regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+\$".toRegex()
+        return regex.matches(password)
+    }
     private fun initSignUpButton() {
         binding.buttonEnter.setOnClickListener {
             val email = binding.editTextUser.text.toString()
@@ -49,15 +52,18 @@ class SingUpActivity : AppCompatActivity() {
             val repeatPassword = binding.editTextRepeatPassword.text.toString()
 
             if (password == repeatPassword) {
-                authViewModel.signUp(email, password) { isSuccess ->
-                    if (isSuccess) {
-                        Toast.makeText(this, "Usuario Creado Correctamente", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-
-                    } else {
-                        Toast.makeText(this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show()
+                if (isPasswordValid(password)) {
+                    authViewModel.signUp(email, password) { isSuccess ->
+                        if (isSuccess) {
+                            Toast.makeText(this, "Usuario Creado Correctamente", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show()
+                        }
                     }
+                } else {
+                    Toast.makeText(this, "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
