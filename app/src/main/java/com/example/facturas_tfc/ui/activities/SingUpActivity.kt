@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivitySingUpBinding
@@ -29,11 +28,10 @@ class SingUpActivity : AppCompatActivity() {
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val paddingInPixels = resources.getDimensionPixelSize(R.dimen.padding_60dp)
+            v.setPadding(paddingInPixels, paddingInPixels, paddingInPixels, paddingInPixels)
             insets
         }
-
     }
 
     private fun initGoToLoginButton() {

@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivityForgotPaswordBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,7 +25,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         initBackToLogin()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val paddingInPixels = resources.getDimensionPixelSize(R.dimen.padding_40dp)
+            val paddingInPixels = resources.getDimensionPixelSize(R.dimen.padding_60dp)
             v.setPadding(paddingInPixels, paddingInPixels, paddingInPixels, paddingInPixels)
             insets
         }

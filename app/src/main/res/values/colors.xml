@@ -66,6 +66,7 @@
     <color name="md_theme_dark_surfaceTint">#ACD463</color>
     <color name="md_theme_dark_outlineVariant">#45483D</color>
     <color name="md_theme_dark_scrim">#000000</color>
+    <color name="filter_screen_button_date_background_color">#CDC6C6</color>
 
 
 </resources>

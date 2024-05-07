@@ -7,13 +7,12 @@
     android:padding="20dp"
     tools:context=".ui.fragments.SmartSolarDataFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/autoConsumption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/lightGray"
-        android:text="CAU(Código de autoservicio)"
+        android:text="@string/smart_details_autoservice_code_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +22,7 @@
         android:id="@+id/editTextCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/example_detail_number"
+        android:text="@string/smart_details_example_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/autoConsumption" />
 
@@ -32,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/lightGray"
-        android:text="Estado solicitud alta autoconsumidor"
+        android:text="@string/smart_details_registration_request_status_text"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="@+id/editTextCode"
         app:layout_constraintTop_toBottomOf="@+id/editTextCode" />
@@ -42,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16dp"
-        android:text="No hemos recibido ninguna solicitud de autoconsumo"
+        android:text="@string/smart_details_request_not_received_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textStatus" />
 
@@ -52,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/lightGray"
-        android:text="Tipo autoconsumo"
+        android:text="@string/smart_details_autoconsuption_type_text"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittextStatus" />
@@ -62,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16dp"
-        android:text="Con excedentes y compensación individual- Consumo"
+        android:text="@string/smart_details_consumption_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAutoConsuptionType" />
 
@@ -72,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/lightGray"
-        android:text="Compensación de excendentes"
+        android:text="@string/smart_details_compensation_surpluses_text"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAutoConsuptionType" />
@@ -81,7 +80,7 @@
         android:id="@+id/editSurplusesCompensation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Precio PVPC"
+        android:text="@string/smart_details_screen_price_pvpc"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSurplusesCompensation" />
@@ -92,7 +91,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/lightGray"
         android:layout_marginTop="15dp"
-        android:text="Potencia de isntalacion"
+        android:text="@string/smart_screen_details_installation_power_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSurplusesCompensation" />
 

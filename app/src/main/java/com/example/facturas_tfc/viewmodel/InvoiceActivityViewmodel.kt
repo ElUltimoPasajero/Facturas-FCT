@@ -31,7 +31,6 @@ class InvoiceActivityViewmodel : ViewModel() {
         get() = _filteredInvoicesListLiveData
 
 
-
     private var _filterLiveData = MutableLiveData<FilterInvoiceVO>()
     val filterLiveData: LiveData<FilterInvoiceVO>
         get() = _filterLiveData
@@ -53,7 +52,6 @@ class InvoiceActivityViewmodel : ViewModel() {
     }
 
 
-
     fun fetchInvoices() {
         viewModelScope.launch {
 
@@ -69,7 +67,6 @@ class InvoiceActivityViewmodel : ViewModel() {
                     invoicesList = invoiceRepository.getAllInvoices()
                     getMaxAmmountFromInvoices()
                     _filteredInvoicesListLiveData.postValue(invoicesList)
-
 
 
                 }
@@ -184,35 +181,34 @@ class InvoiceActivityViewmodel : ViewModel() {
     }
 
 
-
     private fun verifyDateFilter(): List<InvoiceVO> {
         val maxDate = filterLiveData.value?.maxDate
         val minDate = filterLiveData.value?.minDate
         val filteredList = ArrayList<InvoiceVO>()
 
 
-            val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
-            var minDateLocal: Date? = null
-            var maxDateLocal: Date? = null
+        var minDateLocal: Date? = null
+        var maxDateLocal: Date? = null
 
+        try {
+            minDateLocal = minDate?.let { simpleDateFormat.parse(it) }
+            maxDateLocal = maxDate?.let { simpleDateFormat.parse(it) }
+        } catch (e: ParseException) {
+            Log.d("ERROR ", "DateParseError")
+        }
+        for (invoice in invoicesList) {
+            var invoiceDate = Date()
             try {
-                minDateLocal = minDate?.let { simpleDateFormat.parse(it) }
-                maxDateLocal = maxDate?.let { simpleDateFormat.parse(it) }
+                invoiceDate = simpleDateFormat.parse(invoice.date)!!
             } catch (e: ParseException) {
-                Log.d("ERROR ", "DateParseError")
+                Log.d("ERROR", "DatParseError")
             }
-            for (invoice in invoicesList) {
-                var invoiceDate = Date()
-                try {
-                    invoiceDate = simpleDateFormat.parse(invoice.date)!!
-                } catch (e: ParseException) {
-                    Log.d("ERROR", "DatParseError")
-                }
-                if (invoiceDate.after(minDateLocal) && invoiceDate.before(maxDateLocal)) {
-                    filteredList.add(invoice)
-                }
+            if (invoiceDate.after(minDateLocal) && invoiceDate.before(maxDateLocal)) {
+                filteredList.add(invoice)
             }
+        }
 
         return filteredList
     }

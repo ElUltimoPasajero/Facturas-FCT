@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Smart Solar"
+            android:text="@string/smart_solar_screen_title_text"
             android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,17 +38,17 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/my_installation" />
+                android:text="@string/smart_solar_screen_my_installation_text_option" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/energy" />
+                android:text="@string/smart_solar_screen_energy_text_option" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/details" />
+                android:text="@string/smart_solar_screen_details_option_text" />
 
 
         </com.google.android.material.tabs.TabLayout>

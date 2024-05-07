@@ -32,7 +32,7 @@
         android:id="@+id/tvInstructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_pasword_instructions"
+        android:text="@string/forgot_pasword_screen_instructions_text"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/editTextInsertEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,16 +44,14 @@
         android:id="@+id/editTextInsertEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/forgot_password_insert_email"
+        android:hint="@string/forgot_password_screen_insert_email_text"
         app:layout_constraintBottom_toTopOf="@+id/space2"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvInstructions"
         style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
-        app:boxBackgroundColor="@android:color/transparent"
-
-        >
+        app:boxBackgroundColor="@android:color/transparent">
 
         <com.google.android.material.textfield.TextInputEditText
            android:id="@+id/inputTextForgotPassword"
@@ -77,7 +75,7 @@
         android:id="@+id/btnSend"
         android:layout_width="230dp"
         android:layout_height="50dp"
-        android:text="@string/forgot_password_send_email_button"
+        android:text="@string/forgot_password_screen_send_email_button_text"
         app:layout_constraintBottom_toTopOf="@+id/tvForgotAlso"
         app:layout_constraintEnd_toEndOf="parent"
 
@@ -89,7 +87,7 @@
         android:id="@+id/tvForgotAlso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password_also_text"
+        android:text="@string/forgot_password_screen_also_text"
         app:layout_constraintBottom_toTopOf="@+id/backToLogin"
         app:layout_constraintEnd_toStartOf="@+id/dividerRight"
         app:layout_constraintHorizontal_bias="0.5"
@@ -121,7 +119,7 @@
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="230dp"
         android:layout_height="50dp"
-        android:text="@string/forgot_password_sing_in_button"
+        android:text="@string/forgot_password_screen_sing_in_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

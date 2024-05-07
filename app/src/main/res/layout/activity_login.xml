@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="60dp"
     tools:context=".ui.activities.LoginActivity">
 
     <ImageView
@@ -64,7 +63,7 @@
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="contraseña"
+            android:hint="@string/login_screen_password_hint"
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/login_forget_data_text"
+        android:text="@string/login_screen_forget_data_button_text"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/spaceBottom"
         app:layout_constraintStart_toStartOf="@+id/checkBoxRememberPassword"
@@ -87,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:buttonTint="@color/greenProject"
-        android:text="@string/login_remember_user_checkbox"
+        android:text="@string/login_screen_remember_user_checkbox_text"
         app:layout_constraintBottom_toTopOf="@+id/buttonForgotPassword"
         app:layout_constraintStart_toStartOf="@+id/inputTextPasword"
         app:layout_constraintTop_toBottomOf="@+id/inputTextPasword" />
@@ -96,7 +95,7 @@
         android:id="@+id/buttonEnter"
         android:layout_width="230dp"
         android:layout_height="50dp"
-        android:text="@string/login_enter_button"
+        android:text="@string/login_screen_enter_button_text"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/tvAlso"
         app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +109,7 @@
         android:layout_width="230dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
-        android:text="@string/login_register_button"
+        android:text="@string/login_screen_register_button_text"
         android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,7 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="10dp"
-        android:text="@string/login_also_text"
+        android:text="@string/login_screen_also_text"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
         app:layout_constraintEnd_toStartOf="@+id/dividerRight"

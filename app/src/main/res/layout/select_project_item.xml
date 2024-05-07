@@ -14,7 +14,7 @@
         android:id="@+id/tvProject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Práctica 1"
+        tools:text="@string/choose_practice_1_text"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginStart="40dp"

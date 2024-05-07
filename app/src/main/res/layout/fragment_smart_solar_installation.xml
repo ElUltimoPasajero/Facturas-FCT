@@ -7,7 +7,6 @@
     android:padding="20dp"
     tools:context=".ui.fragments.SmartSolarInstallationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/tvDetails"
