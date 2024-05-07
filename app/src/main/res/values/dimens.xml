@@ -4,5 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activities_fragments_padding">30dp</dimen>
     <dimen name="padding_60dp">60dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
+
 
 </resources>
