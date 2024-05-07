@@ -14,7 +14,7 @@ class InvoicesActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_invoices)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val paddingInPixels = resources.getDimensionPixelSize(R.dimen.padding_60dp)
+            val paddingInPixels = resources.getDimensionPixelSize(R.dimen.padding_20dp)
             v.setPadding(paddingInPixels, paddingInPixels, paddingInPixels, paddingInPixels)
             insets
         }
