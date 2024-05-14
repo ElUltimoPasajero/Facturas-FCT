@@ -26,5 +26,17 @@ object FirebaseAuthService {
             }
     }
 
+    fun signUp(email: String, password: String, callback: (Boolean) -> Unit) {
+        val firebaseAuth = getInstance()
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    callback(true)
+                } else {
+                    callback(false)
+                }
+            }
+    }
 
 }

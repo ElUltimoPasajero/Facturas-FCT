@@ -64,6 +64,9 @@ dependencies {
     implementation (libs.androidx.lifecycle.common.java8)
 //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler.v250)
+    testImplementation("org.mockito:mockito-core:3.12.4")
+    testImplementation("org.powermock:powermock-api-mockito2:2.0.9")
+    testImplementation("org.powermock:powermock-module-junit4:2.0.9")
     implementation (libs.firebase.config.ktx)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.hilt.android)

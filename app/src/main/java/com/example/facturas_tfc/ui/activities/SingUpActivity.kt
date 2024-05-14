@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.facturas_tfc.R
+import com.example.facturas_tfc.data.network.FirebaseAuthService
 import com.example.facturas_tfc.databinding.ActivitySingUpBinding
+import com.example.facturas_tfc.domain.SignUpUseCase
 
 class SingUpActivity : AppCompatActivity() {
 
@@ -53,7 +55,9 @@ class SingUpActivity : AppCompatActivity() {
 
             if (password == repeatPassword) {
                 if (isPasswordValid(password)) {
-                    authViewModel.signUp(email, password) { isSuccess ->
+                    val signUpUseCase = SignUpUseCase(FirebaseAuthService)
+
+                    signUpUseCase.signUp(email, password) { isSuccess ->
                         if (isSuccess) {
                             Toast.makeText(this, "Usuario Creado Correctamente", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, MainActivity::class.java)
