@@ -2,6 +2,7 @@ package com.example.facturas_tfc.ui.activities
 
 import AuthenticatorandLoginViewModel
 import android.content.Intent
+import android.widget.EditText
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -9,9 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.facturas_tfc.R
-import com.example.facturas_tfc.data.network.FirebaseAuthService
 import com.example.facturas_tfc.databinding.ActivitySingUpBinding
-import com.example.facturas_tfc.domain.SignUpUseCase
 
 class SingUpActivity : AppCompatActivity() {
 
@@ -43,38 +42,46 @@ class SingUpActivity : AppCompatActivity() {
             finish()
         }
     }
+
     private fun isPasswordValid(password: String): Boolean {
         val regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+\$".toRegex()
         return regex.matches(password)
     }
+
     private fun initSignUpButton() {
         binding.buttonEnter.setOnClickListener {
-            val email = binding.editTextUser.text.toString()
-            val password = binding.editTextPassword.text.toString()
-            val repeatPassword = binding.editTextRepeatPassword.text.toString()
+            val email = binding.editTextUser.toString()
+            val password = binding.editTextPassword.toString()
+            val repeatPassword = binding.editTextRepeatPassword.toString()
 
             if (password == repeatPassword) {
                 if (isPasswordValid(password)) {
-                    val signUpUseCase = SignUpUseCase(FirebaseAuthService)
-
-                    signUpUseCase.signUp(email, password) { isSuccess ->
+                    authViewModel.signUp(email, password) { isSuccess ->
                         if (isSuccess) {
-                            Toast.makeText(this, "Usuario Creado Correctamente", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Usuario Creado Correctamente", Toast.LENGTH_SHORT)
+                                .show()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                         } else {
-                            Toast.makeText(this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Error al registrar el usuario",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 } else {
-                    Toast.makeText(this, "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             } else {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
             }
         }
     }
-
 
 
 }

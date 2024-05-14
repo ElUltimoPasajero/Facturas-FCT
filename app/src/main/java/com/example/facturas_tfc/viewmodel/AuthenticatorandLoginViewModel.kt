@@ -1,27 +1,35 @@
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
+import androidx.security.crypto.EncryptedSharedPreferences
 import com.example.facturas_tfc.data.network.FirebaseAuthService
+import com.example.facturas_tfc.domain.SignUpUseCase
+import androidx.security.crypto.MasterKey
 
 class AuthenticatorandLoginViewModel : ViewModel() {
 
     private lateinit var sharedPreferences: SharedPreferences
+    private val signUpUseCase: SignUpUseCase = SignUpUseCase(FirebaseAuthService)
 
 
     fun initSharedPreferences(context: Context) {
-        sharedPreferences = context.getSharedPreferences("user_credentials", Context.MODE_PRIVATE)
+        val masterKey = MasterKey.Builder(context, MasterKey.DEFAULT_MASTER_KEY_ALIAS)
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM).build()
+
+        sharedPreferences = EncryptedSharedPreferences.create(
+            context,
+            "user_credentials",
+            masterKey,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
     }
 
 
     fun signUp(email: String, password: String, callback: (Boolean) -> Unit) {
-        FirebaseAuthService.getInstance().createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    callback(true)
-                } else {
-                    callback(false)
-                }
-            }
+        signUpUseCase.signUp(email, password) { isSuccess ->
+            callback(isSuccess)
+        }
     }
 
     fun signIn(email: String, password: String, callback: (Boolean) -> Unit) {

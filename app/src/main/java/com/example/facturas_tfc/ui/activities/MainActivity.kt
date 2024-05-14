@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var practiceList: List<PracticeVO>
     private lateinit var adapter: PracticeAdapter
     private val viewModel: InvoiceActivityViewmodel by viewModels()
-    private val LoginViewModel: AuthenticatorandLoginViewModel by viewModels()
+    private val authViewModel: AuthenticatorandLoginViewModel by viewModels()
 
 
     companion object {
@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        authViewModel.initSharedPreferences(this)
         practiceList = (listOf(
             PracticeVO(1, "Práctica 1"),
             PracticeVO(2, "Práctica 2"),
@@ -106,6 +107,7 @@ class MainActivity : AppCompatActivity() {
         val logoutButton = findViewById<Button>(R.id.buttonLogout)
         logoutButton.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
+            authViewModel.clearCredentials()
             val intent = Intent(this, LoginActivity::class.java)
             intent.putExtra("logout", false)
             startActivity(intent)

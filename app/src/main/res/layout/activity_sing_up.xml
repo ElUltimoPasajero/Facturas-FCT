@@ -21,53 +21,81 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:srcCompat="@drawable/ic_logo_iberdrola_cli" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextUser"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/sing_up_enter_your_email_text"
+        android:inputType="textEmailAddress"
         android:textSize="14dp"
+        app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@id/editTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signupSpaceTop"
-        tools:layout_editor_absoluteY="250dp" />
+        tools:layout_editor_absoluteY="250dp" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sing_up_enter_your_email_text"
 
-    <EditText
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextPassword"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:inputType="textPassword"
-        android:hint="@string/insert_your_password"
         android:textSize="14dp"
+        app:endIconMode="password_toggle"
+        app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintBottom_toTopOf="@id/editTextRepeatPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextUser">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/insert_your_password"
+            android:inputType="textPassword"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editTextRepeatPassword"
+        style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
         android:layout_width="match_parent"
-        android:inputType="textPassword"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="@string/repeat_your_password"
+        app:boxBackgroundColor="@android:color/transparent"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
+        app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/repeat_your_password"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/buttonEnter"
         android:layout_width="230dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/sing_up_screen_register_button_text"
         android:textSize="14dp"
         app:layout_constraintBottom_toTopOf="@id/tvAlso"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupSpaceBottom"
         tools:layout_editor_absoluteY="491dp" />
@@ -102,11 +130,11 @@
         android:id="@+id/dividerLeft"
         android:layout_width="110dp"
         android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvAlso"
         app:layout_constraintEnd_toStartOf="@+id/tvAlso"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toTopOf="@id/tvAlso"
-        app:layout_constraintBottom_toBottomOf="@id/tvAlso"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvAlso"
         tools:layout_editor_absoluteY="628dp" />
 
     <com.google.android.material.divider.MaterialDivider
@@ -125,10 +153,10 @@
         android:layout_height="wrap_content"
         android:text="@string/login_screen_also_text"
         android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@id/signupButtonLogin"
         app:layout_constraintEnd_toStartOf="@+id/dividerRight"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/dividerLeft"
-        app:layout_constraintBottom_toTopOf="@id/signupButtonLogin"
         app:layout_constraintTop_toBottomOf="@id/buttonEnter"
         tools:layout_editor_absoluteY="624dp" />
 
