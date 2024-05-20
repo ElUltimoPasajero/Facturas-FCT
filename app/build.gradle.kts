@@ -84,4 +84,7 @@ dependencies {
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.mockito.inline)
     testImplementation(libs.mockito.junit.jupiter)
+    //KOIN
+    implementation ("io.insert-koin:koin-android:3.1.6")
+
 }

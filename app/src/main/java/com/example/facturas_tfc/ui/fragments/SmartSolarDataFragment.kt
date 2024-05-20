@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.facturas_tfc.R
@@ -36,6 +37,13 @@ class SmartSolarDataFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+        binding.smartSolarDetailsInfoButton.setOnClickListener {
+            showAlertDialog()
+        }
+
+
         viewModel.energyDataDetailsLiveData.observe(viewLifecycleOwner) { energyData ->
             binding.editTextCode.setText(energyData.cau)
             binding.textStatus.setText(energyData.requestStatus)
@@ -44,4 +52,17 @@ class SmartSolarDataFragment : Fragment() {
             binding.textInstallationPower.setText(energyData.installationPower)
         }
     }
+
+    private fun showAlertDialog() {
+        val alertDialog = AlertDialog.Builder(requireContext()).apply {
+            setTitle("Estado solicitud autoconsumo")
+            setMessage("El tiempo estimado de activación de tu autoconsumo es de 1 a 2 meses, este variará en función de tu comunidad autónoma y distribuidora.")
+            setPositiveButton("Aceptar") { dialog, _ ->
+                dialog.dismiss()
+            }
+        }.create()
+
+        alertDialog.show()
+    }
+
 }

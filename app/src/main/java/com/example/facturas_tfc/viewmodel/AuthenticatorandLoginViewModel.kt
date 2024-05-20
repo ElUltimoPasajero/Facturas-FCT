@@ -6,12 +6,14 @@ import com.example.facturas_tfc.domain.SignUpUseCase
 import androidx.security.crypto.MasterKey
 import com.example.facturas_tfc.data.network.FirebaseAuthService
 import com.example.facturas_tfc.domain.SignInUseCase
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-class AuthenticatorandLoginViewModel : ViewModel() {
+class AuthenticatorandLoginViewModel : ViewModel(),KoinComponent {
 
     private lateinit var sharedPreferences: SharedPreferences
-    private val signUpUseCase: SignUpUseCase = SignUpUseCase(FirebaseAuthService)
-    private val sigInUseCase: SignInUseCase = SignInUseCase(FirebaseAuthService)
+    private val signUpUseCase: SignUpUseCase  by inject()
+    private val sigInUseCase: SignInUseCase by inject()
 
 
     fun initSharedPreferences(context: Context) {
