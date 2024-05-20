@@ -35,6 +35,7 @@
         app:layout_constraintTop_toBottomOf="@id/signupSpaceTop"
         tools:layout_editor_absoluteY="250dp" >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/sing_up_enter_your_email_text"
@@ -57,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextUser">
 
         <com.google.android.material.textfield.TextInputEditText
-
+            android:id="@+id/textInputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/insert_your_password"
@@ -80,6 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" >
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputRepeatPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

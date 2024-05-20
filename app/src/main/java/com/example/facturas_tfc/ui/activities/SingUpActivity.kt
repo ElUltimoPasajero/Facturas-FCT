@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivitySingUpBinding
+import com.example.facturas_tfc.domain.SignUpUseCase
 
 class SingUpActivity : AppCompatActivity() {
 
@@ -50,12 +51,12 @@ class SingUpActivity : AppCompatActivity() {
 
     private fun initSignUpButton() {
         binding.buttonEnter.setOnClickListener {
-            val email = binding.editTextUser.toString()
-            val password = binding.editTextPassword.toString()
-            val repeatPassword = binding.editTextRepeatPassword.toString()
+            val email = binding.textInputUser.text.toString()
+            val password = binding.textInputPassword.text.toString()
+            val repeatPassword = binding.textInputRepeatPassword.text.toString()
 
             if (password == repeatPassword) {
-                if (isPasswordValid(password)) {
+                if (authViewModel.isPasswordValid(password)) {
                     authViewModel.signUp(email, password) { isSuccess ->
                         if (isSuccess) {
                             Toast.makeText(this, "Usuario Creado Correctamente", Toast.LENGTH_SHORT)

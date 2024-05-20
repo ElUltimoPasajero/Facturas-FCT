@@ -2,14 +2,16 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.security.crypto.EncryptedSharedPreferences
-import com.example.facturas_tfc.data.network.FirebaseAuthService
 import com.example.facturas_tfc.domain.SignUpUseCase
 import androidx.security.crypto.MasterKey
+import com.example.facturas_tfc.data.network.FirebaseAuthService
+import com.example.facturas_tfc.domain.SignInUseCase
 
 class AuthenticatorandLoginViewModel : ViewModel() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private val signUpUseCase: SignUpUseCase = SignUpUseCase(FirebaseAuthService)
+    private val sigInUseCase: SignInUseCase = SignInUseCase(FirebaseAuthService)
 
 
     fun initSharedPreferences(context: Context) {
@@ -33,9 +35,13 @@ class AuthenticatorandLoginViewModel : ViewModel() {
     }
 
     fun signIn(email: String, password: String, callback: (Boolean) -> Unit) {
-        FirebaseAuthService.signIn(email, password) { isSuccess ->
+        sigInUseCase.signIn(email, password) { isSuccess ->
             callback(isSuccess)
         }
+    }
+
+    fun isPasswordValid(password: String): Boolean {
+        return signUpUseCase.isPasswordValid(password)
     }
 
     fun saveCredentials(email: String, password: String) {

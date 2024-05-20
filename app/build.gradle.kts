@@ -64,9 +64,6 @@ dependencies {
     implementation (libs.androidx.lifecycle.common.java8)
 //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler.v250)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.powermock.api.mockito2)
-    testImplementation(libs.powermock.module.junit4)
     implementation (libs.firebase.config.ktx)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.hilt.android)
@@ -76,9 +73,15 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
-    testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     // SECURED SHARED PREFERENCES
     implementation(libs.androidx.security.crypto)
+    // MOCKITO
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.junit.jupiter)
 }

@@ -1,9 +1,10 @@
 [versions]
-agp = "8.3.2"
+agp = "8.4.0"
 firebaseAuth = "22.3.1"
 firebaseBom = "32.8.1"
 firebaseConfigKtx = "22.0.0"
 hiltAndroid = "2.48.1"
+junitJupiter = "5.8.1"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -18,9 +19,10 @@ material = "1.11.0"
 activity = "1.8.2"
 constraintlayout = "2.1.4"
 mockitoCore = "3.12.4"
+mockitoInline = "3.12.4"
+mockitoJunitJupiter = "4.6.1"
+mockitoKotlin = "4.1.0"
 navigationFragmentKtx = "2.7.7"
-powermockApiMockito2 = "2.0.9"
-powermockModuleJunit4 = "2.0.9"
 retrofit = "2.9.0"
 retromock = "1.1.1"
 roomCompiler = "2.5.0"
@@ -48,17 +50,19 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-config-ktx = { module = "com.google.firebase:firebase-config-ktx", version.ref = "firebaseConfigKtx" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junitJupiter" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
-powermock-api-mockito2 = { module = "org.powermock:powermock-api-mockito2", version.ref = "powermockApiMockito2" }
-powermock-module-junit4 = { module = "org.powermock:powermock-module-junit4", version.ref = "powermockModuleJunit4" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockitoInline" }
+mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockitoJunitJupiter" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoKotlin" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retromock = { module = "co.infinum:retromock", version.ref = "retromock" }
 

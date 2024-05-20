@@ -1,9 +1,11 @@
 package com.example.facturas_tfc.ui.activities
 
+import ForgotPasswordViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import com.example.facturas_tfc.R
@@ -13,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth
 class ForgotPasswordActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityForgotPaswordBinding
+    private val viewModel: ForgotPasswordViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,9 +39,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
             val email = binding.inputTextForgotPassword.text.toString().trim()
 
             if (email.isNotEmpty()) {
-                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
+             viewModel.sendPasswordResetEmail(email){ isSuccess ->
+                        if (isSuccess) {
                             Toast.makeText(this, "Se ha enviado un correo electrónico de restablecimiento de contraseña", Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(this, "Error al enviar el correo electrónico de restablecimiento de contraseña", Toast.LENGTH_SHORT).show()

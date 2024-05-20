@@ -2,6 +2,7 @@ package com.example.facturas_tfc.domain
 
 import com.example.facturas_tfc.data.network.FirebaseAuthService
 
+
 class SignUpUseCase(private val firebaseAuthService: FirebaseAuthService) {
 
     fun signUp(email: String, password: String, callback: (Boolean) -> Unit) {
@@ -9,5 +10,10 @@ class SignUpUseCase(private val firebaseAuthService: FirebaseAuthService) {
         firebaseAuthService.signUp(email, password) { isSuccess ->
             callback(isSuccess)
         }
+    }
+
+     fun isPasswordValid(password: String): Boolean {
+        val regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+\$".toRegex()
+        return regex.matches(password)
     }
 }
