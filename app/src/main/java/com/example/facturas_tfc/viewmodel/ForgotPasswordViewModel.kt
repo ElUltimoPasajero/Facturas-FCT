@@ -1,4 +1,8 @@
+package com.example.facturas_tfc.viewmodel
+
+import ForgotPasswordUseCase
 import androidx.lifecycle.ViewModel
+
 
 class ForgotPasswordViewModel : ViewModel() {
 

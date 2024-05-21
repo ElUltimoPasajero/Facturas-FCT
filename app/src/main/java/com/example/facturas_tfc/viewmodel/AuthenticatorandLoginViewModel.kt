@@ -1,3 +1,6 @@
+package com.example.facturas_tfc.viewmodel
+
+
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
@@ -6,12 +9,17 @@ import com.example.facturas_tfc.domain.SignUpUseCase
 import androidx.security.crypto.MasterKey
 import com.example.facturas_tfc.data.network.FirebaseAuthService
 import com.example.facturas_tfc.domain.SignInUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class AuthenticatorandLoginViewModel : ViewModel() {
+
+@HiltViewModel
+class AuthenticatorandLoginViewModel @Inject constructor(
+    private val signUpUseCase: SignUpUseCase,
+    private val signInUseCase: SignInUseCase
+) : ViewModel() {
 
     private lateinit var sharedPreferences: SharedPreferences
-    private val signUpUseCase: SignUpUseCase = SignUpUseCase(FirebaseAuthService)
-    private val sigInUseCase: SignInUseCase = SignInUseCase(FirebaseAuthService)
 
 
     fun initSharedPreferences(context: Context) {
@@ -35,7 +43,7 @@ class AuthenticatorandLoginViewModel : ViewModel() {
     }
 
     fun signIn(email: String, password: String, callback: (Boolean) -> Unit) {
-        sigInUseCase.signIn(email, password) { isSuccess ->
+        signInUseCase.signIn(email, password) { isSuccess ->
             callback(isSuccess)
         }
     }

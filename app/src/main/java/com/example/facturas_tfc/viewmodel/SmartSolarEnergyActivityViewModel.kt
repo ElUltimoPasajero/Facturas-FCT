@@ -6,11 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.facturas_tfc.data.reponse.InvoiceRepository
 import com.example.facturas_tfc.data.reponse.room.EnergyDataModelRoom
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SmartSolarEnergyActivityViewModel : ViewModel() {
 
-    private lateinit var invoiceRepository: InvoiceRepository
+@HiltViewModel
+class SmartSolarEnergyActivityViewModel @Inject constructor(
+    private val invoiceRepository: InvoiceRepository
+) : ViewModel() {
 
     private val _energyDataDetailLiveData = MutableLiveData<EnergyDataModelRoom>()
     val energyDataDetailsLiveData: LiveData<EnergyDataModelRoom>
@@ -24,7 +28,6 @@ class SmartSolarEnergyActivityViewModel : ViewModel() {
     }
 
     private fun initRepository() {
-        invoiceRepository = InvoiceRepository()
     }
 
     private fun fetchEnergyDataDetails() {

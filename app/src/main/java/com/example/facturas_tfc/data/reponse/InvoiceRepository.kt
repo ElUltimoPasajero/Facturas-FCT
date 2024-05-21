@@ -6,10 +6,14 @@ import com.example.facturas_tfc.data.reponse.room.InvoiceDatabase
 import com.example.facturas_tfc.data.reponse.room.InvoiceEntity
 import com.example.facturas_tfc.data.reponse.room.asListInvoicesVO
 import com.example.facturas_tfc.model.InvoiceVO
-import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class InvoiceRepository {
-    val api = InvoiceService()
+
+@Singleton
+class InvoiceRepository @Inject constructor(
+    private val api: InvoiceService
+){
     val energyDetailsDao = InvoiceDatabase.getAppDBInstance().getEnergyDetailsDataDAO()
     val invoiceDAO = InvoiceDatabase.getAppDBInstance().getAppDao()
 

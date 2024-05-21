@@ -5,9 +5,12 @@ import com.example.facturas_tfc.data.network.RetrofitHelper
 import com.example.facturas_tfc.data.network.retromock.RetromockHelper
 import com.example.facturas_tfc.data.reponse.EnergyDataDetail
 import com.example.facturas_tfc.data.reponse.InvoiceResponse
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
-class InvoiceService {
+@Singleton
+class InvoiceService @Inject constructor() {
 
     private val retrofitBuilder = RetrofitHelper.getRetrofit()
     private val retromockBuilder = RetromockHelper.getRetromock(retrofitBuilder)

@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.example.facturas_tfc.R
 
 
-
 class SmartSolarInstallationFragment : Fragment() {
 
 

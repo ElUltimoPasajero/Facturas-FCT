@@ -1,6 +1,5 @@
 package com.example.facturas_tfc.ui.activities
 
-import AuthenticatorandLoginViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -10,7 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivityLoginBinding
+import com.example.facturas_tfc.viewmodel.AuthenticatorandLoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding

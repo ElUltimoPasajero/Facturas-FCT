@@ -1,8 +1,5 @@
 package com.example.facturas_tfc.ui.activities
-
-import AuthenticatorandLoginViewModel
 import android.content.Intent
-import android.widget.EditText
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -11,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivitySingUpBinding
-import com.example.facturas_tfc.domain.SignUpUseCase
+import com.example.facturas_tfc.viewmodel.AuthenticatorandLoginViewModel
 
 class SingUpActivity : AppCompatActivity() {
 

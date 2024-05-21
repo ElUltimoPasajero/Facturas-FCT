@@ -17,10 +17,14 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class InvoiceActivityViewmodel : ViewModel() {
 
-    private val invoiceRepository = InvoiceRepository()
+@Singleton
+class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository: InvoiceRepository
+): ViewModel() {
+
     private val _invoiceLiveData = MutableLiveData<List<InvoiceVO>>()
     private var _maxAmount: Double = 0.0
     private var invoicesList: List<InvoiceVO> = emptyList()

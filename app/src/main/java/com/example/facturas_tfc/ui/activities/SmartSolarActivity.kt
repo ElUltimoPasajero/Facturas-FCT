@@ -15,7 +15,11 @@ import com.example.facturas_tfc.ui.fragments.SmartSolarEnergyFragment
 import com.example.facturas_tfc.ui.fragments.SmartSolarInstallationFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class SmartSolarActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySmartSolarBinding
     private lateinit var toolbar: MaterialToolbar
