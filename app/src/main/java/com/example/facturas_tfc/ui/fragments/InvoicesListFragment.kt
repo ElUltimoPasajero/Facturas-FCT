@@ -21,8 +21,9 @@ import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
 import com.example.facturas_tfc.ui.activities.MainActivity
 import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
 import com.example.facturas_tfc.viewmodel.RemoteConfigViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class InvoicesListFragment : Fragment() {
 
     private lateinit var binding: FragmentInvoicesListBinding

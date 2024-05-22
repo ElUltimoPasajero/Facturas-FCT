@@ -12,6 +12,7 @@ import com.example.facturas_tfc.MyApp
 import com.example.facturas_tfc.data.reponse.InvoiceRepository
 import com.example.facturas_tfc.model.FilterInvoiceVO
 import com.example.facturas_tfc.model.InvoiceVO
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -21,7 +22,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-@Singleton
+@HiltViewModel
 class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository: InvoiceRepository
 ): ViewModel() {
 
