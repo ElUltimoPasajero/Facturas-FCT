@@ -9,7 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivitySingUpBinding
 import com.example.facturas_tfc.viewmodel.AuthenticatorandLoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class SingUpActivity : AppCompatActivity() {
 
     private lateinit var authViewModel: AuthenticatorandLoginViewModel

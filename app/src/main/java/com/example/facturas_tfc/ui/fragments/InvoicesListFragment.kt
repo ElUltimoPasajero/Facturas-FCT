@@ -58,6 +58,18 @@ class InvoicesListFragment : Fragment() {
         setItemDecoration()
 
 
+
+        binding.buttonRetrofit.setOnClickListener {
+            viewModel.swichtPosition(true)
+            Toast.makeText(requireContext(), "Using Retrofit", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.buttonRetromock.setOnClickListener {
+            viewModel.swichtPosition(false)
+            Toast.makeText(requireContext(), "Using Retromock", Toast.LENGTH_SHORT).show()
+        }
+
+
         remoteConfigViewModel.switchVisibility.observe(viewLifecycleOwner) { visible ->
             if (visible) {
                 binding.retroMockWsitch.visibility = View.VISIBLE
