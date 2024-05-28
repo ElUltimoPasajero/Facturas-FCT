@@ -69,15 +69,19 @@ class InvoicesListFragment : Fragment() {
             Toast.makeText(requireContext(), "Using Retromock", Toast.LENGTH_SHORT).show()
         }
 
-
-        remoteConfigViewModel.switchVisibility.observe(viewLifecycleOwner) { visible ->
-            if (visible) {
-                //binding.retroMockWsitch.visibility = View.VISIBLE
-            } else {
-               // binding.retroMockWsitch.visibility = View.GONE
-               // binding.retroMockText.visibility=View.GONE
-            }
+        binding.ktorButton.setOnClickListener {
+            viewModel.fetchInvoicesFromKtor()
+            Toast.makeText(requireContext(), "Using Ktor", Toast.LENGTH_SHORT).show()
         }
+
+
+       remoteConfigViewModel.switchVisibility.observe(viewLifecycleOwner) { visible ->
+           if (visible) {
+                binding.toggleGroupInvoicesButtons.visibility = View.VISIBLE
+            } else {
+                binding.toggleGroupInvoicesButtons.visibility = View.GONE
+                binding.toggleGroupInvoicesButtons.visibility=View.GONE }
+       }
 
         remoteConfigViewModel.changeAppTheme.observe(viewLifecycleOwner) { darkThemeEnabled ->
             remoteConfigViewModel.applyTheme(darkThemeEnabled)

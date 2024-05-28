@@ -9,7 +9,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.facturas_tfc.MyApp
+import com.example.facturas_tfc.data.network.KtorClient
 import com.example.facturas_tfc.data.reponse.InvoiceRepository
+import com.example.facturas_tfc.data.reponse.retrofit.InvoiceService
 import com.example.facturas_tfc.model.FilterInvoiceVO
 import com.example.facturas_tfc.model.InvoiceVO
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +25,7 @@ import javax.inject.Singleton
 
 
 @HiltViewModel
-class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository: InvoiceRepository
+class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository: InvoiceRepository,  private val invoiceService: InvoiceService
 ): ViewModel() {
 
     private val _invoiceLiveData = MutableLiveData<List<InvoiceVO>>()
@@ -51,10 +53,17 @@ class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository
 
     private var useAPI = false
 
+    fun initKtorClient(client: KtorClient) {
+        invoiceService.initKtorClient(client)
+    }
 
     init {
         fetchInvoices()
+        val ktorClient = KtorClient()
+        initKtorClient(ktorClient)
     }
+
+
 
 
     fun fetchInvoices() {
@@ -81,6 +90,8 @@ class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository
             }
         }
     }
+
+
 
 
     private fun isInternetAvailable(): Boolean {
@@ -150,6 +161,19 @@ class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository
         return filteredInvoicesVySeekBar
     }
 
+    fun fetchInvoicesFromKtor() {
+        viewModelScope.launch {
+            try {
+                invoiceRepository.fetchAndInsertInvoicesFromKtor()
+                invoicesList = invoiceRepository.getAllInvoices()
+                getMaxAmmountFromInvoices()
+                _filteredInvoicesListLiveData.postValue(invoicesList)
+            } catch (e: Exception) {
+                Log.e("InvoiceViewModel", "Error fetching invoices from Ktor", e)
+            }
+        }
+    }
+
 
     private fun verifyCheckBox(
         filteredInvoices: List<InvoiceVO>?
@@ -217,6 +241,7 @@ class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository
 
         return filteredList
     }
+
 
 }
 

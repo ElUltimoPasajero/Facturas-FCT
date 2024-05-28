@@ -25,6 +25,10 @@ class InvoiceRepository @Inject constructor(
 
 
     }
+    suspend fun getDataFromKtor(): List<InvoiceResponse>? {
+        return api.getDataFromKtor()
+    }
+
 
     suspend fun getDataFromMock(): List<InvoiceResponse>? {
 
@@ -67,6 +71,22 @@ class InvoiceRepository @Inject constructor(
             )
         }
         insertInvoices(invoicesRoom)
+    }
+
+    suspend fun fetchAndInsertInvoicesFromKtor() {
+        invoiceDAO.deleteAllInvoices()
+
+        val invoicesFromKtor = getDataFromKtor()?.asInvoiceVOList() ?: emptyList()
+
+        val invoicesRoom = invoicesFromKtor.map { invoice ->
+            InvoiceEntity(
+                status = invoice.status,
+                amount = invoice.amount,
+                date = invoice.date
+            )
+        }
+        insertInvoices(invoicesRoom)
+
     }
 
 

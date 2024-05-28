@@ -6,6 +6,8 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.gms.google-services")
     id("com.google.dagger.hilt.android")
+    kotlin("plugin.serialization") version "1.9.0"
+
 
 }
 
@@ -87,4 +89,11 @@ dependencies {
     //HILT
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.android)
+    //KTOR
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.kotlinx.serialization.json)
 }

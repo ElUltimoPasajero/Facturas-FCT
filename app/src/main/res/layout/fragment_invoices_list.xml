@@ -27,7 +27,7 @@
 
 
         <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/toggleGroup"
+            android:id="@+id/toggleGroupInvoicesButtons"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:checkedButton="@+id/button1"
@@ -53,7 +53,7 @@
                 android:textSize="10dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button3"
+                android:id="@+id/ktorButton"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -1,6 +1,7 @@
 package com.example.facturas_tfc.data.reponse.retrofit
 
 import android.util.Log
+import com.example.facturas_tfc.data.network.KtorClient
 import com.example.facturas_tfc.data.network.RetrofitHelper
 import com.example.facturas_tfc.data.network.retromock.RetromockHelper
 import com.example.facturas_tfc.data.reponse.EnergyDataDetail
@@ -16,6 +17,7 @@ class InvoiceService @Inject constructor() {
     private val retromockBuilder = RetromockHelper.getRetromock(retrofitBuilder)
     val retromock = retromockBuilder.create(InvoiceClientRetromock::class.java)
     val retrofit = retrofitBuilder.create(InvoiceClient::class.java)
+    lateinit var ktorClient: KtorClient
 
     suspend fun getDataFromAPI(): List<InvoiceResponse>? {
         val response = retrofit.getDataFromAPI()
@@ -35,7 +37,12 @@ class InvoiceService @Inject constructor() {
 
     }
 
-        suspend fun getDataFromRetromock(): List<InvoiceResponse>? {
+    fun initKtorClient(ktorClient: KtorClient) {
+        this.ktorClient = ktorClient
+    }
+
+
+    suspend fun getDataFromRetromock(): List<InvoiceResponse>? {
         val response = retromock.getDataFromRetromock()
         if (response.isSuccessful) {
             val invoices = response.body()?.facturas
@@ -53,15 +60,20 @@ class InvoiceService @Inject constructor() {
     }
 
     suspend fun getDataEnergyDetailsFromMock(): EnergyDataDetail? {
-        val response = retromockBuilder.create(EnergyDataRetroMock::class.java).getDataEnergyFromMock()
+        val response =
+            retromockBuilder.create(EnergyDataRetroMock::class.java).getDataEnergyFromMock()
         if (response.isSuccessful && response.body() != null) {
             val energyDataDetails = response.body()
             return energyDataDetails
-        } else{
+        } else {
             Log.d("EnergyDaraDetails Error", "Unable to get details")
             return null
         }
     }
+    suspend fun getDataFromKtor(): List<InvoiceResponse>? {
+        return ktorClient.getDataFromKtor()
+    }
+
 }
 
 
