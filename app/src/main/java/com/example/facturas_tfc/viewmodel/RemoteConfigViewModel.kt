@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 
+
 class RemoteConfigViewModel : ViewModel() {
 
     private val firebaseRemoteConfig: FirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()

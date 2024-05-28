@@ -21,7 +21,6 @@ class SignUpUseCaseTest {
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        signInUseCase = SignInUseCase(FirebaseAuthService)
     }
 
     @Test

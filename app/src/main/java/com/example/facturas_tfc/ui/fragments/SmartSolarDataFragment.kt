@@ -11,8 +11,10 @@ import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.FragmentSmartSolarDetailsBinding
 import com.example.facturas_tfc.databinding.FragmentSmartSolarEnergyBinding
 import com.example.facturas_tfc.viewmodel.SmartSolarEnergyActivityViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class SmartSolarDataFragment : Fragment() {
 
     private val viewModel: SmartSolarEnergyActivityViewModel by activityViewModels()

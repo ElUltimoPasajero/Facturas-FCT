@@ -3,9 +3,9 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("androidx.navigation.safeargs.kotlin")
     id("org.jetbrains.kotlin.kapt")
-    id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
     id("com.google.gms.google-services")
+    id("com.google.dagger.hilt.android")
 
 }
 
@@ -84,7 +84,7 @@ dependencies {
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.mockito.inline)
     testImplementation(libs.mockito.junit.jupiter)
-    //KOIN
-    implementation ("io.insert-koin:koin-android:3.1.6")
-
+    //HILT
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.android)
 }

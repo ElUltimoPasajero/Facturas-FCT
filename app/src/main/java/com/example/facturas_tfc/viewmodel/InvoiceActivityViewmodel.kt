@@ -12,15 +12,20 @@ import com.example.facturas_tfc.MyApp
 import com.example.facturas_tfc.data.reponse.InvoiceRepository
 import com.example.facturas_tfc.model.FilterInvoiceVO
 import com.example.facturas_tfc.model.InvoiceVO
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class InvoiceActivityViewmodel : ViewModel() {
 
-    private val invoiceRepository = InvoiceRepository()
+@HiltViewModel
+class InvoiceActivityViewmodel @Inject constructor(private val invoiceRepository: InvoiceRepository
+): ViewModel() {
+
     private val _invoiceLiveData = MutableLiveData<List<InvoiceVO>>()
     private var _maxAmount: Double = 0.0
     private var invoicesList: List<InvoiceVO> = emptyList()

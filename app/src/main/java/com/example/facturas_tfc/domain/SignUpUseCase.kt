@@ -1,9 +1,13 @@
 package com.example.facturas_tfc.domain
 
 import com.example.facturas_tfc.data.network.FirebaseAuthService
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
-class SignUpUseCase(private val firebaseAuthService: FirebaseAuthService) {
+@Singleton
+
+class SignUpUseCase @Inject constructor(private val firebaseAuthService: FirebaseAuthService) {
 
     fun signUp(email: String, password: String, callback: (Boolean) -> Unit) {
 

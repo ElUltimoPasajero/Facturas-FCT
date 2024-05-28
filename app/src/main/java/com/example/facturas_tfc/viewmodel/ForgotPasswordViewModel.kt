@@ -1,10 +1,12 @@
+package com.example.facturas_tfc.viewmodel
+
+import ForgotPasswordUseCase
 import androidx.lifecycle.ViewModel
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
-class ForgotPasswordViewModel : ViewModel(),KoinComponent {
 
-    private val forgotPasswordUseCase : ForgotPasswordUseCase by inject()
+class ForgotPasswordViewModel : ViewModel() {
+
+    private val forgotPasswordUseCase = ForgotPasswordUseCase()
 
     fun sendPasswordResetEmail(email: String, callback: (Boolean) -> Unit) {
         forgotPasswordUseCase.sendPasswordResetEmail(email) { isSuccess ->

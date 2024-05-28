@@ -1,6 +1,5 @@
 package com.example.facturas_tfc.ui.activities
 
-import ForgotPasswordViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -10,7 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivityForgotPaswordBinding
+import com.example.facturas_tfc.viewmodel.ForgotPasswordViewModel
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class ForgotPasswordActivity : AppCompatActivity() {
 

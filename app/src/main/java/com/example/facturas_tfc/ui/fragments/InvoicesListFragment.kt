@@ -21,8 +21,9 @@ import com.example.facturas_tfc.databinding.FragmentInvoicesListBinding
 import com.example.facturas_tfc.ui.activities.MainActivity
 import com.example.facturas_tfc.viewmodel.InvoiceActivityViewmodel
 import com.example.facturas_tfc.viewmodel.RemoteConfigViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class InvoicesListFragment : Fragment() {
 
     private lateinit var binding: FragmentInvoicesListBinding
@@ -57,12 +58,24 @@ class InvoicesListFragment : Fragment() {
         setItemDecoration()
 
 
+
+        binding.buttonRetrofit.setOnClickListener {
+            viewModel.swichtPosition(true)
+            Toast.makeText(requireContext(), "Using Retrofit", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.buttonRetromock.setOnClickListener {
+            viewModel.swichtPosition(false)
+            Toast.makeText(requireContext(), "Using Retromock", Toast.LENGTH_SHORT).show()
+        }
+
+
         remoteConfigViewModel.switchVisibility.observe(viewLifecycleOwner) { visible ->
             if (visible) {
-                binding.retroMockWsitch.visibility = View.VISIBLE
+                //binding.retroMockWsitch.visibility = View.VISIBLE
             } else {
-                binding.retroMockWsitch.visibility = View.GONE
-                binding.retroMockText.visibility=View.GONE
+               // binding.retroMockWsitch.visibility = View.GONE
+               // binding.retroMockText.visibility=View.GONE
             }
         }
 
@@ -72,16 +85,7 @@ class InvoicesListFragment : Fragment() {
 
 
 
-        binding.retroMockWsitch.setOnCheckedChangeListener { _, isChecked ->
-            viewModel.swichtPosition(isChecked)
-            Toast.makeText(
-                requireContext(),
-                "Using ${if (isChecked) "Retrofit" else "Retromock"}",
-                Toast.LENGTH_SHORT
-            ).show()
 
-
-        }
 
     }
 
