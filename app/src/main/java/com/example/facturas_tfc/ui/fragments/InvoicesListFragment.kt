@@ -72,10 +72,10 @@ class InvoicesListFragment : Fragment() {
 
         remoteConfigViewModel.switchVisibility.observe(viewLifecycleOwner) { visible ->
             if (visible) {
-                binding.retroMockWsitch.visibility = View.VISIBLE
+                //binding.retroMockWsitch.visibility = View.VISIBLE
             } else {
-                binding.retroMockWsitch.visibility = View.GONE
-                binding.retroMockText.visibility=View.GONE
+               // binding.retroMockWsitch.visibility = View.GONE
+               // binding.retroMockText.visibility=View.GONE
             }
         }
 
@@ -85,16 +85,7 @@ class InvoicesListFragment : Fragment() {
 
 
 
-        binding.retroMockWsitch.setOnCheckedChangeListener { _, isChecked ->
-            viewModel.swichtPosition(isChecked)
-            Toast.makeText(
-                requireContext(),
-                "Using ${if (isChecked) "Retrofit" else "Retromock"}",
-                Toast.LENGTH_SHORT
-            ).show()
 
-
-        }
 
     }
 

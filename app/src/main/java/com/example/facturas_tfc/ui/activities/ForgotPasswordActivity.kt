@@ -11,6 +11,9 @@ import com.example.facturas_tfc.R
 import com.example.facturas_tfc.databinding.ActivityForgotPaswordBinding
 import com.example.facturas_tfc.viewmodel.ForgotPasswordViewModel
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class ForgotPasswordActivity : AppCompatActivity() {
 

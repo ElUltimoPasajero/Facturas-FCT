@@ -28,13 +28,12 @@
 
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/toggleGroup"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             app:checkedButton="@+id/button1"
+            app:layout_constraintBottom_toTopOf="@+id/rvInvoicesList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView9"
-            app:layout_constraintTop_toTopOf="parent"
             app:singleSelection="true">
 
             <com.google.android.material.button.MaterialButton
@@ -61,25 +60,6 @@
                 android:text="Ktor"
                 android:textSize="10dp" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
-
-        <Switch
-            android:id="@+id/retroMockWsitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/rvInvoicesList"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/retroMockText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RetroMock"
-            app:layout_constraintBottom_toTopOf="@+id/rvInvoicesList"
-            app:layout_constraintEnd_toStartOf="@+id/retroMockWsitch"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView9"
