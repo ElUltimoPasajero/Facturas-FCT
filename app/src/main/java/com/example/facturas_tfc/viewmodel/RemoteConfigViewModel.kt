@@ -29,7 +29,7 @@ class RemoteConfigViewModel : ViewModel() {
         firebaseRemoteConfig.fetchAndActivate()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val visible = firebaseRemoteConfig.getBoolean("switch_visibility")
+                    val visible = firebaseRemoteConfig.getBoolean("toggle_buttons_visibility")
                     _switchVisibility.postValue(visible)
 
                     val changeTheme = firebaseRemoteConfig.getBoolean("change_theme")

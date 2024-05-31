@@ -80,7 +80,7 @@ class InvoicesListFragment : Fragment() {
                 binding.toggleGroupInvoicesButtons.visibility = View.VISIBLE
             } else {
                 binding.toggleGroupInvoicesButtons.visibility = View.GONE
-                binding.toggleGroupInvoicesButtons.visibility=View.GONE }
+              }
        }
 
         remoteConfigViewModel.changeAppTheme.observe(viewLifecycleOwner) { darkThemeEnabled ->
