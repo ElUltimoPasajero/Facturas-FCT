@@ -1,17 +1,18 @@
 package com.example.facturas_tfc
 
 
-import android.content.Context
 import android.content.SharedPreferences
 import com.example.facturas_tfc.domain.SignUpUseCase
 import com.example.facturas_tfc.domain.SignInUseCase
 import com.example.facturas_tfc.viewmodel.AuthenticatorandLoginViewModel
-import com.nhaarman.mockitokotlin2.*
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.whenever
 
 class AuthenticatorandLoginViewModelTest {
 

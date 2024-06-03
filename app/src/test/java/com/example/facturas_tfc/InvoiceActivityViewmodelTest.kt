@@ -20,6 +20,10 @@ import org.junit.*
 import org.junit.Assert.assertEquals
 import org.mockito.Mockito.`when`
 import java.util.*
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.whenever
+import org.junit.Before
+import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class InvoiceActivityViewmodelTest {
