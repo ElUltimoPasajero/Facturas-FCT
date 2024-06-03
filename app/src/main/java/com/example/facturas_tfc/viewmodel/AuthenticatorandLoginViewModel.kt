@@ -18,7 +18,7 @@ class AuthenticatorandLoginViewModel @Inject constructor(
     private val signInUseCase: SignInUseCase
 ) : ViewModel() {
 
-    private lateinit var sharedPreferences: SharedPreferences
+    lateinit var sharedPreferences: SharedPreferences
 
 
     fun initSharedPreferences(context: Context) {

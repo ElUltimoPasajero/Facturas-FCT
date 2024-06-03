@@ -30,7 +30,7 @@ class SmartSolarEnergyActivityViewModel @Inject constructor(
     private fun initRepository() {
     }
 
-    private fun fetchEnergyDataDetails() {
+     fun fetchEnergyDataDetails() {
         viewModelScope.launch {
             invoiceRepository.fetchAndInsertEnergyDataFromMock()
             _energyDataDetailLiveData.postValue(invoiceRepository.getAllEnergyData())

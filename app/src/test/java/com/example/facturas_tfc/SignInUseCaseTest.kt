@@ -1,3 +1,5 @@
+package com.example.facturas_tfc
+
 import com.example.facturas_tfc.data.network.FirebaseAuthService
 import com.example.facturas_tfc.domain.SignInUseCase
 import com.google.android.gms.tasks.OnCompleteListener
@@ -6,7 +8,6 @@ import com.google.firebase.auth.AuthResult
 import org.junit.Before
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito.verify
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.mockito.Mock

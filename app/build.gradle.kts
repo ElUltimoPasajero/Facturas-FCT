@@ -34,7 +34,7 @@ android {
             )
         }
     }
-    viewBinding{
+    viewBinding {
         enable = true
     }
     compileOptions {
@@ -54,19 +54,19 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation (libs.retromock)
+    implementation(libs.retromock)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
-    implementation (libs.firebase.auth)
-    implementation (libs.androidx.lifecycle.viewmodel.ktx.v240)
-    implementation (libs.androidx.lifecycle.livedata.ktx.v240)
-    implementation (libs.androidx.lifecycle.common.java8)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx.v240)
+    implementation(libs.androidx.lifecycle.livedata.ktx.v240)
+    implementation(libs.androidx.lifecycle.common.java8)
 //noinspection KaptUsageInsteadOfKsp
     kapt(libs.androidx.room.compiler.v250)
-    implementation (libs.firebase.config.ktx)
+    implementation(libs.firebase.config.ktx)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.hilt.android)
     implementation(libs.retrofit)
@@ -96,4 +96,13 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
     implementation(libs.kotlinx.serialization.json)
+    //GROOVY
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
+    testImplementation("org.mockito:mockito-core:3.12.4")
+    testImplementation("junit:junit:4.13.2")
+
+
+
 }
