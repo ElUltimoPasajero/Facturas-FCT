@@ -111,6 +111,8 @@ class InvoicesListFragment : Fragment() {
             invoiceAdapter.setListInvoices(invoices)
             viewModel.getMaxAmmountFromInvoices()
             invoiceAdapter.notifyDataSetChanged()
+
+            binding.emptyInvoices.visibility = if (invoices.isEmpty()) View.VISIBLE else View.GONE
         }
         viewModel.filterLiveData.observe(viewLifecycleOwner) { filter ->
             if (filter != null) {

@@ -61,6 +61,18 @@
                 android:textSize="10dp" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
+
+        <TextView
+            android:id="@+id/emptyInvoices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/no_results"
+            app:layout_constraintBottom_toBottomOf="@+id/rvInvoicesList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
