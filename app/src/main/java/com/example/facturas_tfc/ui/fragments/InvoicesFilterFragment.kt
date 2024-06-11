@@ -255,7 +255,7 @@ class InvoicesFilterFragment : Fragment() {
 
     private fun resetFilters() {
 
-        binding.sliderAmmountSeekbar.progress = 0
+        binding.sliderAmmountSeekbar.progress = viewModel.maxAmountVm.toInt() + 1
         binding.buttonFrom.text = getString(R.string.day_month_year)
         binding.buttonUntil.text = getString(R.string.day_month_year)
         binding.checkBoxPaid.isChecked = false

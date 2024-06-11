@@ -29,7 +29,7 @@ class KtorClient {
 
     suspend fun getDataFromKtor(): List<InvoiceResponse>? {
         return try {
-            val invoices = client.get("https://viewnextandroid.wiremockapi.cloud/facturas").body<InvoiceRepositoryListResponse>().facturas
+            val invoices = client.get("https://viewnextandroid4.wiremockapi.cloud/facturas").body<InvoiceRepositoryListResponse>().facturas
             invoices
         } catch (e: Exception) {
             Log.e("Error", "Failed to fetch data from Ktor: ${e.message}")
